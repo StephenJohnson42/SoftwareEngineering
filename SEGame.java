@@ -1,3 +1,5 @@
+//Brendan Gressel
+//done, prints fram to screen
 import javax.swing.JFrame;
 
 public class SEGame {
