@@ -175,8 +175,20 @@ public class FloorGen{
 		//add a change in direction 
 		//possibly do a couple passes to add random rooms to the map
 		//is_adjacent as a possible method?
-		
-		
+		/*
+		for (int i = 0; i < floor_array.length; i++) {
+            for (int j = 0; j < floor_array[i].length; j++) {
+                
+				if(floor_array[i][j]==0)
+				{
+					
+				}
+				
+            }
+			
+		    System.out.printf("\n");
+        }
+		*/
 		
 	}
 
