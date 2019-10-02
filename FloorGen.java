@@ -171,6 +171,13 @@ public class FloorGen{
 			}
 		
 		}
+		
+		//add a change in direction 
+		//possibly do a couple passes to add random rooms to the map
+		//is_adjacent as a possible method?
+		
+		
+		
 	}
 
 	//method that prints a visual representation of the floor 
