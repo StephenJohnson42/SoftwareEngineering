@@ -13,7 +13,9 @@ public class FloorGen{
 	//declare the randomizer object 
 	SecureRandom random_gen = new SecureRandom();
 	
-	int[][] floor_array = new int[8][8];
+	int the_size=6;
+	
+	int[][] floor_array = new int[the_size][the_size];
 
 	//constructor
 	public FloorGen()
@@ -34,8 +36,8 @@ public class FloorGen{
 		int x_down,y_down;
 		
 		//generate start room
-		x_start=random_gen.nextInt(8);
-		y_start=random_gen.nextInt(8);
+		x_start=random_gen.nextInt(the_size);
+		y_start=random_gen.nextInt(the_size);
 		
 		//print the coordinates of the starting room, for testing
 		System.out.println("start coordinates: "+x_start+", "+y_start); 
@@ -46,8 +48,8 @@ public class FloorGen{
 		//loop that will run until a downstair-containing room is generated that is different from the starting room
 		while(true)
 		{
-			x_down=random_gen.nextInt(8);
-			y_down=random_gen.nextInt(8);
+			x_down=random_gen.nextInt(the_size);
+			y_down=random_gen.nextInt(the_size);
 			
 			if(x_down==x_start && y_down==y_start)
 			{
@@ -189,6 +191,50 @@ public class FloorGen{
 		    System.out.printf("\n");
         }
 		*/
+		
+		//pass to add rooms to the floor
+		
+		int picker;
+		
+		for (int i = 1; i < floor_array.length-1; i++) {
+            for (int j = 1; j < floor_array[i].length-1; j++) {
+                
+				
+				if(floor_array[i][j]==0)
+				{
+					picker=random_gen.nextInt(10);
+				
+				
+				
+					if(picker<5)
+					{
+						
+						if(floor_array[i-1][j]>0)
+						{
+							floor_array[i][j]=8;
+						}
+						if(floor_array[i][j-1]>0)
+						{
+							floor_array[i][j]=8;
+						}
+						if(floor_array[i+1][j]>0)
+						{
+							floor_array[i][j]=8;
+						}
+						if(floor_array[i][j+1]>0)
+						{
+							floor_array[i][j]=8;
+						}
+						
+					}
+				}	
+            }
+			
+		    
+        }
+		
+		
+		
 		
 	}
 
