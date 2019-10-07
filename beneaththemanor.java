@@ -11,9 +11,11 @@ public class beneaththemanor extends JFrame
 {
 	public Icon stones = new ImageIcon("stones.png");
 	public Icon blackspace = new ImageIcon("black.png");
+	public Icon character = new ImageIcon("character.png");
 	public JButton[] track=new JButton[100];
     public startGame start=new startGame();
-    
+    public KeyListener mover;
+    public int trackmover;
     
     public beneaththemanor()
     {
@@ -44,7 +46,56 @@ public class beneaththemanor extends JFrame
             	}
                 
             }
+            
+            trackmover=50;
+            track[trackmover].setIcon(character);
+            
+            mover =  new KeyListener(){
+            	@Override
+                public void keyPressed(KeyEvent e)
+                {	
+            		int key = e.getKeyCode();
+
+            	    if (key == KeyEvent.VK_LEFT) {
+            	    	track[trackmover].setIcon(blackspace);
+            	        trackmover--;
+            	        track[trackmover].setIcon(character);
+            	    }
+
+            	    if (key == KeyEvent.VK_RIGHT) {
+            	    	track[trackmover].setIcon(blackspace);
+            	        trackmover++;
+            	        track[trackmover].setIcon(character);
+            	    }
+
+            	    if (key == KeyEvent.VK_UP) {
+            	    	track[trackmover].setIcon(blackspace);
+            	        trackmover=trackmover-10;
+            	        track[trackmover].setIcon(character);
+            	    }
+
+            	    if (key == KeyEvent.VK_DOWN) {
+            	    	track[trackmover].setIcon(blackspace);
+            	    	trackmover=trackmover+10;
+            	    	track[trackmover].setIcon(character);
+            	    }
+                }
+
+				@Override
+				public void keyTyped(KeyEvent e) {
+				
+					
+				}
+
+				@Override
+				public void keyReleased(KeyEvent e) {
+	
+					
+				}
+            };
+            track[trackmover].addKeyListener(mover); 
+ 
+            }
         }
     }
-    
-}
+   
