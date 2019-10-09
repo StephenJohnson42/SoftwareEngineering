@@ -9,14 +9,16 @@ import java.lang.String;
 
 public class beneaththemanor extends JFrame
 {
-	public Icon stones = new ImageIcon("stones.png");
-	public Icon blackspace = new ImageIcon("black.png");
-	public Icon character = new ImageIcon("character.png");
+	public Icon stones = new ImageIcon(getClass().getResource("stones.png"));
+	public Icon blackspace = new ImageIcon(getClass().getResource("black.png"));
+	public Icon character = new ImageIcon(getClass().getResource("character.png"));
+	public Icon startpanel = new ImageIcon(getClass().getResource("start.png"));
 	public JButton[] track=new JButton[100];
 	public int[] nums=new int[100];
     public startGame start=new startGame();
     public KeyListener mover;
     public int trackmover;
+    public ActionListener initialclick;
     
     public beneaththemanor()
     {
@@ -51,14 +53,23 @@ public class beneaththemanor extends JFrame
             }
             
             trackmover=50;
-            track[trackmover].setIcon(character);
+            track[trackmover].setIcon(startpanel);
+            initialclick =  new ActionListener(){
+                public void actionPerformed(ActionEvent event)
+                {	
+                	track[trackmover].setIcon(character);
+                }
+            };
+            track[trackmover].addActionListener(initialclick); 
             
             mover =  new KeyListener(){
             	@Override
                 public void keyPressed(KeyEvent e)
                 {	
             		int key = e.getKeyCode();
-
+            	
+            		track[trackmover].removeActionListener(initialclick);
+            		
             		int x;
             		
             	    if (key == KeyEvent.VK_LEFT) {
