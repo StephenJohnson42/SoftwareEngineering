@@ -30,6 +30,7 @@ public class FloorGen{
 	}
 	
 	//generates randomly the "start room", then rooms with stairs
+	//todo, possibly use the room type "numbers" to represent room layouts
 	public void Generate()
 	{
 		int x_start,y_start;
@@ -260,5 +261,61 @@ public class FloorGen{
 	}
 	
 	
-
+	//methods that return true if stairs are in the current room (possibly be an int if checking for down vs up stairs)
+	//This may change, if we have set layouts for rooms
+	public boolean check_up_stair(int xpos, int ypos)
+	{
+		if(floor_array[xpos][ypos]==1)
+		{
+			return true;	
+		}
+		else
+		{
+			return false;
+		}
+			
+	}
+	
+	public boolean check_down_stair(int xpos, int ypos)
+	{
+		if(floor_array[xpos][ypos]==2)
+		{
+			return true;	
+		}
+		else
+		{
+			return false;
+		}
+			
+	}
+	
+	//These methods aren't done
+	/*
+	
+	//method to check if there is a room to the north of the current room
+	public boolean check_door_north(int xpos, int ypos)
+	{
+		
+	}
+	
+	//method to check if there is a room to the south of the current room
+	public boolean check_door_south(int xpos, int ypos)
+	{
+		
+	}
+	
+	//method to check if there is a room to the east of the current room
+	public boolean check_door_east(int xpos, int ypos)
+	{
+		
+	}
+	
+	//method to check if there is a room to the west of the current room
+	public boolean check_door_west(int xpos, int ypos)
+	{
+		
+	}
+	
+	*/
+	
 }
