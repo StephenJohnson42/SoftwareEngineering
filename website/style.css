@@ -12,7 +12,9 @@ html{
 }
 
 body{
- background-color: #282828;
+ 
+ background-image: url("photos/stones.png");
+  background-repeat: repeat;
 }
 
 a:link {
@@ -29,7 +31,14 @@ color: #000;
     background-color: #909090;
     color: #000;
 }
-
+.blackBack{
+    background-color: #000;
+}
+.woodBack{
+  background-image: url("photos/wood.png");
+  background-repeat: repeat;
+  padding:20px;
+}
 .columnSep{
   padding:10px;
   margin:10px;
