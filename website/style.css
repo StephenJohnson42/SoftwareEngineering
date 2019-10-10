@@ -46,7 +46,25 @@ color: #000;
   margin-top:20px;
   margin-bottom:20px;
   box-shadow: 1px 4px 8px 1px black, 0 6px 20px 6px rgba(0, 0, 0, 0.4);
-
+}
+.Custom-box2{
+  color: #000;
+  padding-left:20px;
+  padding-right:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.Custom-box3{
+  background-color: #C0C0C0;
+  color: #000;
+  padding-left:20px;
+  padding-right:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-top:20px;
+  margin-bottom:20px;
 }
 
 
