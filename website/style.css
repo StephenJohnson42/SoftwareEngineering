@@ -30,6 +30,12 @@ color: #000;
     color: #000;
 }
 
+.columnSep{
+  padding:10px;
+  margin:10px;
+  border:4px #282828 solid;
+}
+
 .Custom-box{
   border:4px #282828 solid;
   color: #000;
