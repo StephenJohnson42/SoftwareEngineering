@@ -29,6 +29,10 @@ a:hover {
 color: #000;
 }
 
+.headerOutline{
+    text-shadow:-1px -1px 0  #654321,1px -1px 0  #654321,-1px 1px 0  #654321,1px 1px 0  #654321;
+    box-shadow: 1px 4px 8px 1px #C0C0C0, 0 6px 20px 6px #C0C0C0;
+}
 .darkBack{
     background-color: #909090;
     color: #000;
@@ -39,10 +43,10 @@ color: #000;
     margin:0px;
 }
 .woodBack{
-  background-image: url("photos/wood.png");
-  background-repeat: repeat;
-  padding:20px;
-  border:2px #000 solid;
+    background-image: url("photos/wood.png");
+    background-repeat: repeat;
+    padding:20px;
+    border:2px #000 solid;
 }
 .columnSep{
   padding:10px;
