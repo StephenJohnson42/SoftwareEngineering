@@ -16,7 +16,9 @@ body{
  background-image: url("photos/stones.png");
   background-repeat: repeat;
 }
-
+footer{
+   border:2px #000 solid;
+}
 a:link {
 color: #000;
 }
