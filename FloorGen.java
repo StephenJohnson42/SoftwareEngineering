@@ -15,6 +15,9 @@ public class FloorGen{
 	
 	int the_size=6;
 	
+	int x_start;
+	int y_start;
+	
 	int[][] floor_array = new int[the_size][the_size];
 
 	//constructor
@@ -33,15 +36,16 @@ public class FloorGen{
 	//todo, possibly use the room type "numbers" to represent room layouts
 	public void Generate()
 	{
-		int x_start,y_start;
+		
 		int x_down,y_down;
 		
 		//generate start room
 		x_start=random_gen.nextInt(the_size);
 		y_start=random_gen.nextInt(the_size);
 		
+		
 		//print the coordinates of the starting room, for testing
-		System.out.println("start coordinates: "+x_start+", "+y_start); 
+		//System.out.println("start coordinates: "+x_start+", "+y_start); 
 		
 		//set the array to store the postion of the starting room 
 		floor_array[x_start][y_start]=1;
@@ -63,7 +67,7 @@ public class FloorGen{
 		}
 		
 		//print the coordinates of the generated downstair roomm, for testing 
-		System.out.println("downstair coordinates: "+x_down+", "+y_down); 
+		//System.out.println("downstair coordinates: "+x_down+", "+y_down); 
 		
 		//set the array to store the postion of the downstair room 
 		floor_array[x_down][y_down]=2;
@@ -175,28 +179,12 @@ public class FloorGen{
 		
 		}
 		
-		//add a change in direction 
-		//possibly do a couple passes to add random rooms to the map
-		//is_adjacent as a possible method?
-		/*
-		for (int i = 0; i < floor_array.length; i++) {
-            for (int j = 0; j < floor_array[i].length; j++) {
-                
-				if(floor_array[i][j]==0)
-				{
-					
-				}
-				
-            }
-			
-		    System.out.printf("\n");
-        }
-		*/
 		
 		//pass to add rooms to the floor
 		
-		int picker;
+		int picker; //integer that will hold randomly generated number 
 		
+		//for each element in the array (each room)
 		for (int i = 1; i < floor_array.length-1; i++) {
             for (int j = 1; j < floor_array[i].length-1; j++) {
                 
@@ -212,19 +200,19 @@ public class FloorGen{
 						
 						if(floor_array[i-1][j]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						if(floor_array[i][j-1]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						if(floor_array[i+1][j]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						if(floor_array[i][j+1]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						
 					}
@@ -261,6 +249,10 @@ public class FloorGen{
 	}
 	
 	
+	//Methods only needed if array is private
+	
+	/*
+	
 	//methods that return true if stairs are in the current room (possibly be an int if checking for down vs up stairs)
 	//This may change, if we have set layouts for rooms
 	public boolean check_up_stair(int xpos, int ypos)
@@ -286,11 +278,12 @@ public class FloorGen{
 		{
 			return false;
 		}
-			
+	
 	}
 	
+
+	
 	//These methods aren't done
-	/*
 	
 	//method to check if there is a room to the north of the current room
 	public boolean check_door_north(int xpos, int ypos)
