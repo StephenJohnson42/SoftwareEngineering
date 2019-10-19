@@ -2,7 +2,44 @@
 Benjamin West
 bpw15@my.fsu.edu
 
-proof of concept "Floor generator" 
+Floor generator class
+
+Each "Floor" object uses a 2d integer array to track the generated floor. 
+
+Each non-zero element in the array represents a room:
+'1' is the "starting" room, containing upstairs
+'2' is a room containing downstairs
+'3' is a room that doesn't contain any stairs 
+
+The non-zero (room) elements spacial relation to each other represents the floor-plan, and shows which rooms border each other
+
+Examples
+
+1. This is the floor_array before a floor has been generated
+
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+2. This is the floor_array after a random floor has been generated 
+
+0 0 0 0 0 0
+0 0 0 1 3 3
+0 0 0 3 3 2
+0 0 0 0 3 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+The starting room is at coordinates 1,3
+
+A room with downstairs is at coordinates 2,5
+
+The starting room borders two rooms, there will be doors on the east and south walls
+The two rooms it borders are at 1,4 and 2,3
+
 */
 
 import java.security.SecureRandom;
@@ -13,9 +50,14 @@ public class FloorGen{
 	//declare the randomizer object 
 	SecureRandom random_gen = new SecureRandom();
 	
-	int the_size=6;
+	//the floor size (# of rooms x # of rooms)
+	private int the_size=6;
 	
-	int[][] floor_array = new int[the_size][the_size];
+	//integers that track the postion of the starting room in the floor 
+	private int x_start;
+	private int y_start;
+	
+	private int[][] floor_array = new int[the_size][the_size];
 
 	//constructor
 	public FloorGen()
@@ -30,17 +72,19 @@ public class FloorGen{
 	}
 	
 	//generates randomly the "start room", then rooms with stairs
+	//todo, possibly use the room type "numbers" to represent room layouts
 	public void Generate()
 	{
-		int x_start,y_start;
+		
 		int x_down,y_down;
 		
 		//generate start room
 		x_start=random_gen.nextInt(the_size);
 		y_start=random_gen.nextInt(the_size);
 		
+		
 		//print the coordinates of the starting room, for testing
-		System.out.println("start coordinates: "+x_start+", "+y_start); 
+		//System.out.println("start coordinates: "+x_start+", "+y_start); 
 		
 		//set the array to store the postion of the starting room 
 		floor_array[x_start][y_start]=1;
@@ -62,7 +106,7 @@ public class FloorGen{
 		}
 		
 		//print the coordinates of the generated downstair roomm, for testing 
-		System.out.println("downstair coordinates: "+x_down+", "+y_down); 
+		//System.out.println("downstair coordinates: "+x_down+", "+y_down); 
 		
 		//set the array to store the postion of the downstair room 
 		floor_array[x_down][y_down]=2;
@@ -174,28 +218,12 @@ public class FloorGen{
 		
 		}
 		
-		//add a change in direction 
-		//possibly do a couple passes to add random rooms to the map
-		//is_adjacent as a possible method?
-		/*
-		for (int i = 0; i < floor_array.length; i++) {
-            for (int j = 0; j < floor_array[i].length; j++) {
-                
-				if(floor_array[i][j]==0)
-				{
-					
-				}
-				
-            }
-			
-		    System.out.printf("\n");
-        }
-		*/
 		
 		//pass to add rooms to the floor
 		
-		int picker;
+		int picker; //integer that will hold randomly generated number 
 		
+		//for each element in the array (each room)
 		for (int i = 1; i < floor_array.length-1; i++) {
             for (int j = 1; j < floor_array[i].length-1; j++) {
                 
@@ -211,19 +239,19 @@ public class FloorGen{
 						
 						if(floor_array[i-1][j]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						if(floor_array[i][j-1]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						if(floor_array[i+1][j]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						if(floor_array[i][j+1]>0)
 						{
-							floor_array[i][j]=8;
+							floor_array[i][j]=3;
 						}
 						
 					}
@@ -238,7 +266,7 @@ public class FloorGen{
 		
 	}
 
-	//method that prints a visual representation of the floor 
+	//method that prints a visual representation of the floor, for testing purposes
 	public void draw()
 	{
 		for (int i = 0; i < floor_array.length; i++) {
@@ -259,6 +287,124 @@ public class FloorGen{
 		
 	}
 	
+	
+	//accessor methods
+	
+	//methods that return the starting room coordinates
+	public int get_starting_x()
+	{
+		return x_start;
+	}
+	
+	public int get_starting_y()
+	{
+		return y_start;
+	}
+	
+	
+	
+	//methods that return true if stairs are in the current room (possibly be an int if checking for down vs up stairs)
+	
+	//this function returns the starting room so it is commented out
+	/*
+	//This may change, if we have set layouts for rooms
+	public boolean check_up_stair(int xpos, int ypos)
+	{
+		if(floor_array[xpos][ypos]==1)
+		{
+			return true;	
+		}
+		else
+		{
+			return false;
+		}
+			
+	}
+	*/
+	
+
+	public boolean check_down_stair(int xpos, int ypos)
+	{
+		if(floor_array[xpos][ypos]==2)
+		{
+			return true;	
+		}
+		else
+		{
+			return false;
+		}
+	
+	}
+	
+
+	//method to check if there is a room to the north of the current room
+	public boolean check_door_north(int xpos, int ypos)
+	{
+		if(xpos==0)
+		{
+			return false; //if the room is in the top row of room of the floorplan it cannot have a room to the north of it
+		}
+		else if(floor_array[xpos-1][ypos]>0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+	
+	//method to check if there is a room to the south of the current room
+	public boolean check_door_south(int xpos, int ypos)
+	{
+		if(xpos==the_size-1)
+		{
+			return false; //if the room is in the bottom row of room of the floorplan it cannot have a room to the south of it
+		}
+		else if(floor_array[xpos+1][ypos]>0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	//method to check if there is a room to the east of the current room
+	public boolean check_door_east(int xpos, int ypos)
+	{
+		if(ypos==the_size-1)
+		{
+			return false; //if the room is in the right-most column of room of the floorplan it cannot have a room to the east of it
+		}
+		else if(floor_array[xpos][ypos+1]>0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	//method to check if there is a room to the west of the current room
+	public boolean check_door_west(int xpos, int ypos)
+	{
+		if(ypos==0)
+		{
+			return false; //if the room is in the left-most column of room of the floorplan it cannot have a room to the west of it
+		}
+		else if(floor_array[xpos][ypos-1]>0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	
 
 }
