@@ -9,6 +9,7 @@ import java.lang.String;
 
 public class beneaththemanor extends JFrame
 {
+	//setting all the icons
 	public Icon stones = new ImageIcon(getClass().getResource("stones.png"));
 	public Icon blackspace = new ImageIcon(getClass().getResource("black.png"));
 	public Icon arrowR = new ImageIcon(getClass().getResource("arrowR.png"));
@@ -19,6 +20,7 @@ public class beneaththemanor extends JFrame
 	public int[] nums=new int[100];
 	public int indoor;
 	public int outdoor;
+	
     public startGame start=new startGame();
     public KeyListener mover;
     public int trackmover;
@@ -39,7 +41,7 @@ public class beneaththemanor extends JFrame
             setLayout(new GridLayout(10,10,0,0));
             
            
-            
+            //setting the individual spaces
             for (int i=0; i<100; i++) {
                 track[i]=new JButton();
                 track[i].setIcon(stones);
@@ -67,6 +69,7 @@ public class beneaththemanor extends JFrame
             nums[outdoor]=1;
             track[outdoor].setIcon(arrowR);
             
+	    //setting the character
             track[trackmover].setIcon(startpanel);
             initialclick =  new ActionListener(){
                 public void actionPerformed(ActionEvent event)
@@ -76,6 +79,7 @@ public class beneaththemanor extends JFrame
             };
             track[trackmover].addActionListener(initialclick); 
             
+	    //the code that allows the user to move the character
             mover =  new KeyListener(){
             	@Override
                 public void keyPressed(KeyEvent e)
@@ -151,6 +155,7 @@ public class beneaththemanor extends JFrame
  
             }
         
+	//generates a new room based on the exit of the previous room
         public void newRoom(){
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
