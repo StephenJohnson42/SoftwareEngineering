@@ -1,45 +1,32 @@
 /*
 Benjamin West
 bpw15@my.fsu.edu
-
 Floor generator class
-
 Each "Floor" object uses a 2d integer array to track the generated floor. 
-
 Each non-zero element in the array represents a room:
 '1' is the "starting" room, containing upstairs
 '2' is a room containing downstairs
 '3' is a room that doesn't contain any stairs 
-
 The non-zero (room) elements spacial relation to each other represents the floor-plan, and shows which rooms border each other
-
 Examples
-
 1. This is the floor_array before a floor has been generated
-
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
-
 2. This is the floor_array after a random floor has been generated 
-
 0 0 0 0 0 0
 0 0 0 1 3 3
 0 0 0 3 3 2
 0 0 0 0 3 0
 0 0 0 0 0 0
 0 0 0 0 0 0
-
 The starting room is at coordinates 1,3
-
 A room with downstairs is at coordinates 2,5
-
 The starting room borders two rooms, there will be doors on the east and south walls
 The two rooms it borders are at 1,4 and 2,3
-
 */
 
 import java.security.SecureRandom;
@@ -340,11 +327,11 @@ public class FloorGen{
 	//method to check if there is a room to the north of the current room
 	public boolean check_door_north(int xpos, int ypos)
 	{
-		if(xpos==0)
+		if(ypos==5)
 		{
 			return false; //if the room is in the top row of room of the floorplan it cannot have a room to the north of it
 		}
-		else if(floor_array[xpos-1][ypos]>0)
+		else if(floor_array[xpos][ypos+1]>0)
 		{
 			return true;
 		}
@@ -358,11 +345,11 @@ public class FloorGen{
 	//method to check if there is a room to the south of the current room
 	public boolean check_door_south(int xpos, int ypos)
 	{
-		if(xpos==the_size-1)
+		if(ypos==0)
 		{
 			return false; //if the room is in the bottom row of room of the floorplan it cannot have a room to the south of it
 		}
-		else if(floor_array[xpos+1][ypos]>0)
+		else if(floor_array[xpos][ypos-1]>0)
 		{
 			return true;
 		}
@@ -375,11 +362,11 @@ public class FloorGen{
 	//method to check if there is a room to the east of the current room
 	public boolean check_door_east(int xpos, int ypos)
 	{
-		if(ypos==the_size-1)
+		if(xpos==5)
 		{
 			return false; //if the room is in the right-most column of room of the floorplan it cannot have a room to the east of it
 		}
-		else if(floor_array[xpos][ypos+1]>0)
+		else if(floor_array[xpos+1][ypos]>0)
 		{
 			return true;
 		}
@@ -392,11 +379,11 @@ public class FloorGen{
 	//method to check if there is a room to the west of the current room
 	public boolean check_door_west(int xpos, int ypos)
 	{
-		if(ypos==0)
+		if(xpos==0)
 		{
 			return false; //if the room is in the left-most column of room of the floorplan it cannot have a room to the west of it
 		}
-		else if(floor_array[xpos][ypos-1]>0)
+		else if(floor_array[xpos-1][ypos]>0)
 		{
 			return true;
 		}
