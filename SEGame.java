@@ -110,6 +110,7 @@ public class SEGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(640, 640); // set frame size
         frame.setVisible(true); // display frame
+		frame.setResizable(false);
         
     }
 }

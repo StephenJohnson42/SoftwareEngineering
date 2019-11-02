@@ -23,6 +23,7 @@ public class beneaththemanor extends JFrame
     public KeyListener mover;
     public int trackmover;
     public ActionListener initialclick;
+	
     Random rand = new Random();
     FloorGen floor;
     int x, y;
@@ -40,10 +41,17 @@ public class beneaththemanor extends JFrame
             setLayout(new GridLayout(10,10,0,0));
             
            
+		   
+			
+		   
+		   
+		   
             
             for (int i=0; i<100; i++) {
                 track[i]=new JButton();
                 track[i].setIcon(stones);
+				track[i].setBorder(null); //removes the grid
+				track[i].setFocusable(false);
                 nums[i]=0;
                 add(track[i]);
             }
@@ -103,6 +111,10 @@ public class beneaththemanor extends JFrame
             };
             track[trackmover].addActionListener(initialclick); 
             
+		
+			track[trackmover].setFocusable(true);
+			
+			
             mover =  new KeyListener(){
             	@Override
                 public void keyPressed(KeyEvent e)
@@ -185,6 +197,7 @@ public class beneaththemanor extends JFrame
         	
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
+				
                 nums[i]=0;
             }
             int temp=0;
@@ -270,6 +283,7 @@ public class beneaththemanor extends JFrame
         	
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
+				
                 nums[i]=0;
             }
             int temp=0;
