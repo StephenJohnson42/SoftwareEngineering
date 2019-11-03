@@ -62,6 +62,11 @@ public class FloorGen{
 	//todo, possibly use the room type "numbers" to represent room layouts
 	public void Generate()
 	{
+		for (int i = 0; i < floor_array.length; i++) {
+            for (int j = 0; j < floor_array[i].length; j++) {
+            	floor_array[i][j]=0;
+            }
+        }
 		
 		int x_down,y_down;
 		
@@ -79,6 +84,7 @@ public class FloorGen{
 		//loop that will run until a downstair-containing room is generated that is different from the starting room
 		while(true)
 		{
+			
 			x_down=random_gen.nextInt(the_size);
 			y_down=random_gen.nextInt(the_size);
 			
