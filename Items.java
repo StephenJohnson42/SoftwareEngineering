@@ -22,6 +22,12 @@ public class Items{
       itemNum = rand.nextInt(maxTypes); //Returns a random int between 0 and 9
                                   //Random numbers will be however many items we want
   }
+  public Items(int determined){
+      maxTypes = 10;
+      Random rand = new Random(); //Create random number generator
+      itemNum = determined; //Returns a random int between 0 and 9
+                                  //Random numbers will be however many items we want
+  }
   private int getNum(){           //Used to return the initial random number made by the constructor
       return itemNum;
   }
