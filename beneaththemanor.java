@@ -33,7 +33,8 @@ public class beneaththemanor extends JFrame
     {
         super("Beneath the Manor");
 		setLayout(new BorderLayout());
-        add(start, BorderLayout.NORTH);
+        //add(start);
+        add(start, BorderLayout.CENTER);
 		add(Hud, BorderLayout.SOUTH);
     }
     
@@ -41,8 +42,12 @@ public class beneaththemanor extends JFrame
     {
         //sets up the board
         public startGame(){
-            setLayout(new GridLayout(10,10,0,0));
-            
+        	
+        	GridLayout grid=new GridLayout(10,10,0,0);
+        	grid.setHgap(0); 
+            grid.setVgap(0);
+            setLayout(grid);
+           
          
             for (int i=0; i<100; i++) {
                 track[i]=new JButton();
