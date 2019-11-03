@@ -38,97 +38,100 @@ public class Items{
       return itemImg[getNum()];
   }
   public int getHealthMod(){             //These are all going to be accessors for the different types of items that might be made
-      int match = getNum;                //Return whatever health bonus that item gives
-      if(match = 0)
+      int match = getNum();                //Return whatever health bonus that item gives
+      if(match == 0)
           return 10;
-      if(match = 1)
+      if(match == 1)
           return 10;
-      if(match = 2)
+      if(match == 2)
           return 10;
-      if(match = 3)
+      if(match == 3)
           return 10;
-      if(match = 4)
+      if(match == 4)
           return 10;
-      if(match = 5)
+      if(match == 5)
           return 10;
-      if(match = 6)
+      if(match == 6)
           return 10;
-      if(match = 7)
+      if(match == 7)
           return 10;
-      if(match = 8)
+      if(match == 8)
           return 10;
-      if(match = 9)
+      if(match == 9)
           return 10;
-      
+      return 0;
   }
   public int getDamageMod(){
-      int match = getNum;                //Return whatever damage bonus that item gives
-      if(match = 0)
-          return 10;                      //The functions will return these values whenever called
-      if(match = 1)                       //The value returned depends on what the random item is
+      int match = getNum();                //Return whatever damage bonus that item gives
+      if(match == 0)
           return 10;
-      if(match = 2)
+      if(match == 1)
           return 10;
-      if(match = 3)
+      if(match == 2)
           return 10;
-      if(match = 4)
+      if(match == 3)
           return 10;
-      if(match = 5)
+      if(match == 4)
           return 10;
-      if(match = 6)
+      if(match == 5)
           return 10;
-      if(match = 7)
+      if(match == 6)
           return 10;
-      if(match = 8)
+      if(match == 7)
           return 10;
-      if(match = 9)
+      if(match == 8)
           return 10;
+      if(match == 9)
+          return 10;
+      return 0;
   }
   public int stat3(){
-      int match = getNum;                //Return whatever health bonus that item gives
-      if(match = 0)
+      int match = getNum();                //Return whatever health bonus that item gives
+      if(match == 0)
           return 10;
-      if(match = 1)
+      if(match == 1)
           return 10;
-      if(match = 2)
+      if(match == 2)
           return 10;
-      if(match = 3)
+      if(match == 3)
           return 10;
-      if(match = 4)
+      if(match == 4)
           return 10;
-      if(match = 5)
+      if(match == 5)
           return 10;
-      if(match = 6)
+      if(match == 6)
           return 10;
-      if(match = 7)
+      if(match == 7)
           return 10;
-      if(match = 8)
+      if(match == 8)
           return 10;
-      if(match = 9)
+      if(match == 9)
           return 10;
+      return 0;
   }
   public int stat4(){
-      int match = getNum;                //Return whatever health bonus that item gives
-      if(match = 0)
+      int match = getNum();                //Return whatever health bonus that item gives
+      if(match == 0)
           return 10;
-      if(match = 1)
+      if(match == 1)
           return 10;
-      if(match = 2)
+      if(match == 2)
           return 10;
-      if(match = 3)
+      if(match == 3)
           return 10;
-      if(match = 4)
+      if(match == 4)
           return 10;
-      if(match = 5)
+      if(match == 5)
           return 10;
-      if(match = 6)
+      if(match == 6)
           return 10;
-      if(match = 7)
+      if(match == 7)
           return 10;
-      if(match = 8)
+      if(match == 8)
           return 10;
-      if(match = 9)
+      if(match == 9)
           return 10;
+      return 0;
   }
   
 }
