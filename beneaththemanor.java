@@ -20,6 +20,7 @@ public class beneaththemanor extends JFrame
 	public int indoor;
 	public int[] outdoor=new int[4]; //NSEW
     public startGame start=new startGame();
+	public GameHud Hud=new GameHud();
     public KeyListener mover;
     public int trackmover;
     public ActionListener initialclick;
@@ -31,7 +32,9 @@ public class beneaththemanor extends JFrame
     public beneaththemanor()
     {
         super("Beneath the Manor");
-        add(start);
+		setLayout(new BorderLayout());
+        add(start, BorderLayout.NORTH);
+		add(Hud, BorderLayout.SOUTH);
     }
     
     class startGame extends JPanel
@@ -334,8 +337,17 @@ public class beneaththemanor extends JFrame
             
         }
         
-        }
-    
-    
     }
+    
+	class GameHud extends JPanel
+	{
+		public GameHud(){
+		setPreferredSize(new Dimension(640, 200));
+		setBackground(Color.BLACK);
+		}
+		
+	}
+	
+    
+}
 

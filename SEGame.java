@@ -124,7 +124,7 @@ public class SEGame {
 		
 		beneaththemanor frame = new beneaththemanor();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(640, 640); // set frame size
+        frame.setSize(640, 840); // set frame size
         frame.setVisible(true); // display frame
 		frame.setResizable(false);
         
