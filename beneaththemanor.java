@@ -40,13 +40,7 @@ public class beneaththemanor extends JFrame
         public startGame(){
             setLayout(new GridLayout(10,10,0,0));
             
-           
-		   
-			
-		   
-		   
-		   
-            
+         
             for (int i=0; i<100; i++) {
                 track[i]=new JButton();
                 track[i].setIcon(stones);
@@ -103,6 +97,8 @@ public class beneaththemanor extends JFrame
                 track[95].setIcon(blackspace);
             }
             
+			//removed, no longer needed
+			/*
             track[trackmover].setIcon(startpanel);
             initialclick =  new ActionListener(){
                 public void actionPerformed(ActionEvent event)
@@ -111,10 +107,10 @@ public class beneaththemanor extends JFrame
                 }
             };
             track[trackmover].addActionListener(initialclick); 
-            
+            */
 		
 			track[trackmover].setFocusable(true);
-			
+			track[trackmover].setIcon(character);
 			
             mover =  new KeyListener(){
             	@Override
@@ -122,7 +118,7 @@ public class beneaththemanor extends JFrame
                 {	
             		int key = e.getKeyCode();
             	
-            		track[trackmover].removeActionListener(initialclick);
+            		//track[trackmover].removeActionListener(initialclick);
             		
             		int x;
             		
