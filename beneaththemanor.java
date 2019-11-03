@@ -70,7 +70,8 @@ public class beneaththemanor extends JFrame
             }
             floor = new FloorGen();
             floor.Generate();
-            
+            floor.draw();
+			
             outdoor[0]=0;
             outdoor[1]=0;
             outdoor[2]=0;
@@ -279,8 +280,10 @@ public class beneaththemanor extends JFrame
         
         public void newFloor(){
         	
+			
         	floor.Generate();
-        	
+        	floor.draw();
+			
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
 				

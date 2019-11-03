@@ -12,8 +12,12 @@ public class SEGame {
 	
     public static void main(String[] args) {
         
+		
+		
+		//create the menu!
+		
 		//create a jframe for the menu window
-		JFrame menu_window=new JFrame("MENU TEST!"); 
+		JFrame menu_window=new JFrame("Beneath the Manor"); 
 		
 		//create a panel to hold the menu buttons 
 		JPanel menu_button_holder = new JPanel();
@@ -25,13 +29,23 @@ public class SEGame {
 		menu_window.setIconImage(window_icon.getImage());
 		
 		//make a jlabel with the menu title image 
-		//JLabel imgLabel = new JLabel(new ImageIcon(SEGame.class.getResource("TITLE IMAGE GOES HERE")));
+		JLabel imgLabel = new JLabel(new ImageIcon(SEGame.class.getResource("menu_background.png")));
 		
 		//create the buttons 
 		JButton Start_button=new JButton("Start New Game");  
 		//JButton Load_button=new JButton("Load Game");  
 		JButton Credits_button=new JButton("Credits");  
 		JButton Quit_button=new JButton("Quit");  
+		//Start_button.setBorderPainted(false);
+		Start_button.setFocusPainted(false);
+		//Start_button.setContentAreaFilled(false);
+		Start_button.setForeground(Color.GRAY);
+		Start_button.setBackground(Color.BLACK);
+		Credits_button.setForeground(Color.GRAY);
+		Credits_button.setBackground(Color.BLACK);
+		Quit_button.setForeground(Color.GRAY);
+		Quit_button.setBackground(Color.BLACK);
+		
 		
 		//set the button text fonts 
 		Start_button.setFont(new Font("Serif", Font.BOLD, 24));
@@ -74,7 +88,9 @@ public class SEGame {
 			}  
 		});
 		*/	
-			
+		
+		menu_window.setLayout(new BorderLayout()); 
+		
 		//add the buttons to the button frame 
 		menu_button_holder.add(Start_button);
 		//menu_button_holder.add(Load_button);
@@ -82,19 +98,19 @@ public class SEGame {
 		menu_button_holder.add(Quit_button);
 		
 		//set the layout of the button panel
-		menu_button_holder.setLayout(new GridLayout(4,1));
+		menu_button_holder.setLayout(new GridLayout(1,4));
 		
 		//add all the components to the menu window	
-		//menu_window.add(imgLabel);
-		menu_window.add(menu_button_holder);
+		menu_window.add(imgLabel);
+		menu_window.add(menu_button_holder, BorderLayout.SOUTH);
 
 		
 		//set menu_window constraints 
 		menu_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		menu_window.setSize(480,380);
+		menu_window.setSize(960,500);
 		menu_window.setResizable(false);
-		menu_window.setLayout(new GridLayout(1,2));  
-		menu_window.getContentPane().setBackground(new Color(39,115,11));
+		
+		//menu_window.getContentPane().setBackground(new Color(39,115,11));
 	
 	
 		//set menu_window visibility 
