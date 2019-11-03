@@ -13,4 +13,11 @@ public class Items{
       itemNum = rand.nextInt(10); //Returns a random int between 0 and 9
                                   //Random numbers will be however many items we want
   }
+  private int getNum(){
+      return itemNum;
+  }
+  public String getImage(){
+      return itemImg[getNum()];
+  }
+  
 }
