@@ -24,6 +24,8 @@ public class beneaththemanor extends JFrame
     public KeyListener mover;
     public int trackmover;
     public ActionListener initialclick;
+    public int score;
+    public int lives;
 	
     Random rand = new Random();
     FloorGen floor;
@@ -80,6 +82,9 @@ public class beneaththemanor extends JFrame
             outdoor[3]=0;
             
             trackmover=45;
+            
+            score=0;
+            lives=3;
             
             x= floor.get_starting_x();
             y= floor.get_starting_y();
@@ -288,6 +293,9 @@ public class beneaththemanor extends JFrame
         	floor.Generate();
         	floor.draw();
 			
+        	score = score + 100;
+        	Hud.UpdateStats();
+        	
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
 				
@@ -346,9 +354,29 @@ public class beneaththemanor extends JFrame
     
 	class GameHud extends JPanel
 	{
+		public JLabel scoreDisplay = new JLabel("Score: " + score, JLabel.CENTER);
+        public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
+        
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
 		setBackground(Color.BLACK);
+		GridLayout grid=new GridLayout(1,2,0,0);
+    	grid.setHgap(0); 
+        grid.setVgap(0);
+        setLayout(grid);
+        scoreDisplay.setForeground(Color.WHITE);
+        scoreDisplay.setFont(new Font("Serif", Font.BOLD, 24));
+        add(scoreDisplay);
+        livesDisplay.setForeground(Color.WHITE);
+        livesDisplay.setFont(new Font("Serif", Font.BOLD, 24));
+        add(livesDisplay);
+        
+        
+		}
+		
+		public void UpdateStats() {
+			scoreDisplay.setText("Score: " + score);
+			livesDisplay.setText("Lives: " + lives);
 		}
 		
 	}
