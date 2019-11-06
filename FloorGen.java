@@ -262,6 +262,7 @@ public class FloorGen{
 	//method that prints a visual representation of the floor, for testing purposes
 	public void draw()
 	{
+		System.out.printf("- - - - - -\n");
 		for (int i = floor_array.length-1; i >=0 ; --i) {
             for (int j = 0; j < floor_array[i].length; j++) {
                 
