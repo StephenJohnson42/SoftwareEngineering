@@ -15,6 +15,10 @@ public class beneaththemanor extends JFrame
 	public Icon startpanel = new ImageIcon(getClass().getResource("start.png"));
 	public Icon stairs = new ImageIcon(getClass().getResource("stairs.png"));
 	public Icon wall = new ImageIcon(getClass().getResource("wall.png"));
+	public Icon coins = new ImageIcon(getClass().getResource("coins.png"));
+	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
+	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
+	
 	public JButton[] track=new JButton[100];
 	public int[] nums=new int[100];
 	public int indoor;
@@ -26,8 +30,9 @@ public class beneaththemanor extends JFrame
     public ActionListener initialclick;
     public int score;
     public int lives;
+    public int coinspot;
+    public Random rand;
 	
-    Random rand = new Random();
     FloorGen floor;
     int x, y;
     
@@ -35,7 +40,6 @@ public class beneaththemanor extends JFrame
     {
         super("Beneath the Manor");
 		setLayout(new BorderLayout());
-        //add(start);
         add(start, BorderLayout.CENTER);
 		add(Hud, BorderLayout.SOUTH);
     }
@@ -109,19 +113,15 @@ public class beneaththemanor extends JFrame
                 nums[95]=1;
                 track[95].setIcon(blackspace);
             }
-            
-			//removed, no longer needed
-			/*
-            track[trackmover].setIcon(startpanel);
-            initialclick =  new ActionListener(){
-                public void actionPerformed(ActionEvent event)
-                {	
-                	track[trackmover].setIcon(character);
-                }
-            };
-            track[trackmover].addActionListener(initialclick); 
-            */
 		
+            coinspot=0;
+            rand = new Random();
+            while (nums[coinspot]==0)
+            	coinspot=rand.nextInt(99)+1;
+            
+            track[coinspot].setIcon(coins);
+            nums[coinspot]=2;
+            
 			track[trackmover].setFocusable(true);
 			track[trackmover].setIcon(character);
 			
@@ -131,8 +131,6 @@ public class beneaththemanor extends JFrame
                 {	
             		int key = e.getKeyCode();
             	
-            		//track[trackmover].removeActionListener(initialclick);
-            		
             		int x;
             		
             	    if (key == KeyEvent.VK_LEFT) {
@@ -145,6 +143,14 @@ public class beneaththemanor extends JFrame
             	        trackmover--;
             	        track[trackmover].setIcon(character);
             	    	}
+            	    	else if (x==2) {
+            	    		score=score+100;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);
+                	        trackmover--;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
+            	    	}
             	    }
 
             	    if (key == KeyEvent.VK_RIGHT) {
@@ -156,6 +162,14 @@ public class beneaththemanor extends JFrame
             	    	track[trackmover].setIcon(blackspace);
             	        trackmover++;
             	        track[trackmover].setIcon(character);
+            	    	}
+            	    	else if (x==2) {
+            	    		score=score+100;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);
+                	        trackmover++;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
             	    	}
             	    }
 
@@ -172,6 +186,14 @@ public class beneaththemanor extends JFrame
             	        trackmover=trackmover-10;
             	        track[trackmover].setIcon(character);
             	    	}
+            	    	else if (x==2) {
+            	    		score=score+100;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);
+                	        trackmover=trackmover-10;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
+            	    	}
             	    }
 
             	    if (key == KeyEvent.VK_DOWN) {
@@ -183,6 +205,14 @@ public class beneaththemanor extends JFrame
             	    	track[trackmover].setIcon(blackspace);
             	    	trackmover=trackmover+10;
             	    	track[trackmover].setIcon(character);
+            	    	}
+            	    	else if (x==2) {
+            	    		score=score+100;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);
+                	    	trackmover=trackmover+10;
+                	    	track[trackmover].setIcon(character);
+                	    	nums[trackmover]=1;
             	    	}
             	    }
                 }
@@ -283,6 +313,15 @@ public class beneaththemanor extends JFrame
             	nums[1]=1;
             	track[1].setIcon(stairs);
             }
+            
+            coinspot=0;
+            
+            while (nums[coinspot]==0)
+            	coinspot=rand.nextInt(99)+1;
+            
+            track[coinspot].setIcon(coins);
+            nums[coinspot]=2;
+            
             track[trackmover].setIcon(character);
             
         }
@@ -292,9 +331,6 @@ public class beneaththemanor extends JFrame
 			
         	floor.Generate();
         	floor.draw();
-			
-        	score = score + 100;
-        	Hud.UpdateStats();
         	
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
