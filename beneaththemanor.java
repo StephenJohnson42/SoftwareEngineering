@@ -28,7 +28,7 @@ public class beneaththemanor extends JFrame
     public KeyListener mover;
     public int trackmover;
     public ActionListener initialclick;
-    public int score;
+    public int gold;
     public int lives;
     public int coinspot;
     public Random rand;
@@ -87,7 +87,7 @@ public class beneaththemanor extends JFrame
             
             trackmover=45;
             
-            score=0;
+            gold=0;
             lives=3;
             
             x= floor.get_starting_x();
@@ -144,7 +144,7 @@ public class beneaththemanor extends JFrame
             	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		score=score+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	        trackmover--;
@@ -164,7 +164,7 @@ public class beneaththemanor extends JFrame
             	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		score=score+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	        trackmover++;
@@ -187,7 +187,7 @@ public class beneaththemanor extends JFrame
             	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		score=score+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	        trackmover=trackmover-10;
@@ -207,7 +207,7 @@ public class beneaththemanor extends JFrame
             	    	track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		score=score+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	    	trackmover=trackmover+10;
@@ -390,7 +390,7 @@ public class beneaththemanor extends JFrame
     
 	class GameHud extends JPanel
 	{
-		public JLabel scoreDisplay = new JLabel("Score: " + score, JLabel.CENTER);
+		public JLabel goldDisplay = new JLabel("Gold: " + gold, JLabel.CENTER);
         public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
         
 		public GameHud(){
@@ -400,18 +400,18 @@ public class beneaththemanor extends JFrame
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
-        scoreDisplay.setForeground(Color.WHITE);
-        scoreDisplay.setFont(new Font("Serif", Font.BOLD, 24));
-        add(scoreDisplay);
+        goldDisplay.setForeground(Color.WHITE);
+        goldDisplay.setFont(new Font("Serif", Font.BOLD, 18));
+        add(goldDisplay);
         livesDisplay.setForeground(Color.WHITE);
-        livesDisplay.setFont(new Font("Serif", Font.BOLD, 24));
+        livesDisplay.setFont(new Font("Serif", Font.BOLD, 18));
         add(livesDisplay);
         
         
 		}
 		
 		public void UpdateStats() {
-			scoreDisplay.setText("Score: " + score);
+			goldDisplay.setText("Gold: " + gold);
 			livesDisplay.setText("Lives: " + lives);
 		}
 		
