@@ -29,6 +29,7 @@ public class beneaththemanor extends JFrame
     public int trackmover;
     public ActionListener initialclick;
     public int gold;
+	public int level;
     public int lives;
     public int coinspot;
     public Random rand;
@@ -331,7 +332,9 @@ public class beneaththemanor extends JFrame
 			
         	floor.Generate();
         	floor.draw();
-        	
+        	level = level+1;
+			Hud.UpdateStats();
+			
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
 				
@@ -391,21 +394,25 @@ public class beneaththemanor extends JFrame
 	class GameHud extends JPanel
 	{
 		public JLabel goldDisplay = new JLabel("Gold: " + gold, JLabel.CENTER);
+		public JLabel levelDisplay = new JLabel("Level: " + level, JLabel.CENTER);
         public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
         
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
 		setBackground(Color.BLACK);
-		GridLayout grid=new GridLayout(1,2,0,0);
+		GridLayout grid=new GridLayout(1,3,0,0);
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
         goldDisplay.setForeground(Color.WHITE);
-        goldDisplay.setFont(new Font("Serif", Font.BOLD, 18));
+        goldDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(goldDisplay);
         livesDisplay.setForeground(Color.WHITE);
-        livesDisplay.setFont(new Font("Serif", Font.BOLD, 18));
+        livesDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(livesDisplay);
+		levelDisplay.setForeground(Color.WHITE);
+        levelDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(levelDisplay);
         
         
 		}
@@ -413,6 +420,7 @@ public class beneaththemanor extends JFrame
 		public void UpdateStats() {
 			goldDisplay.setText("Gold: " + gold);
 			livesDisplay.setText("Lives: " + lives);
+			levelDisplay.setText("Level: " + level);
 		}
 		
 	}
