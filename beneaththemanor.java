@@ -77,6 +77,7 @@ public class beneaththemanor extends JFrame
             	}
                 
             }
+            
             floor = new FloorGen();
             floor.Generate();
             floor.draw();
@@ -425,7 +426,6 @@ public class beneaththemanor extends JFrame
 		}
 		
 	}
-	
-    
 }
+
 
