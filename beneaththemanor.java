@@ -90,6 +90,7 @@ public class beneaththemanor extends JFrame
             
             gold=0;
             lives=3;
+            level=1;
             
             x= floor.get_starting_x();
             y= floor.get_starting_y();
@@ -394,7 +395,7 @@ public class beneaththemanor extends JFrame
 	class GameHud extends JPanel
 	{
 		public JLabel goldDisplay = new JLabel("Gold: " + gold, JLabel.CENTER);
-		public JLabel levelDisplay = new JLabel("Level: " + level, JLabel.CENTER);
+		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
         public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
         
 		public GameHud(){
@@ -420,7 +421,7 @@ public class beneaththemanor extends JFrame
 		public void UpdateStats() {
 			goldDisplay.setText("Gold: " + gold);
 			livesDisplay.setText("Lives: " + lives);
-			levelDisplay.setText("Level: " + level);
+			levelDisplay.setText("Floor: " + level);
 		}
 		
 	}
