@@ -14,8 +14,11 @@ Things still needed to be done:
 public class Items{
   private int itemNum;
   private int maxTypes;
-  private String[] itemImg = {"item0.png", "item1.png", "item2.png", "item3.png", "item4.png", "item5.png", "item6.png", 
-                              "item7.png", "item8.png", "item9.png"};
+  private String[] itemImg = {"potion.png", "/ItemPhotos/item1.png", 
+  "/ItemPhotos/item2.png", "/ItemPhotos/item3.png", "/ItemPhotos/item4.png", 
+  "/ItemPhotos/item5.png", "/ItemPhotos/item6.png", "/ItemPhotos/item7.png", 
+  "/ItemPhotos/item8.png", "/ItemPhotos/item9.png"};
+  
   public Items(){
       maxTypes = 10;
       Random rand = new Random(); //Create random number generator
@@ -24,7 +27,6 @@ public class Items{
   }
   public Items(int determined){
       maxTypes = 10;
-      Random rand = new Random(); //Create random number generator
       itemNum = determined; //Returns a random int between 0 and 9
                                   //Random numbers will be however many items we want
   }
