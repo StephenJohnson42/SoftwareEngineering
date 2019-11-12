@@ -15,7 +15,7 @@ public class Characters{
   private int maxTypes;
   private int health;
   private int damage;
-  private String[] charImg = {"/CharPhotos/Char0.png", "/CharPhotos/Char1.png", //Array for holding the photo paths
+  private String[] charImg = {"character.png", "/CharPhotos/Char1.png", //Array for holding the photo paths
   "/CharPhotos/Char2.png", "/CharPhotos/Char3.png", "/CharPhotos/Char4.png"};
 
   public Characters(){
@@ -27,9 +27,8 @@ public class Characters{
 
   public Characters(int determined){
       maxTypes = 5;
-      Random rand = new Random(); 				//Create random number generator
-      itemNum = determined; 	  				//Returns a random int between 0 and 9
-                                  				//Random numbers will be however many Characters we want
+      charNum  = determined; 	  				
+                                  	
   }
 
   private int getcharNum(){           			//Used to return the initial random number made by the constructor

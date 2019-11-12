@@ -1,5 +1,5 @@
 /*
-Benjamin West
+Benjamin West 
 bpw15@my.fsu.edu
 Floor generator class
 Each "Floor" object uses a 2d integer array to track the generated floor. 
