@@ -19,6 +19,8 @@ public class beneaththemanor extends JFrame
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
 	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
 	
+	public Items[] charItems=new Items[10];			//Array for holding the items
+	public int itemCounter;							//How many items are being held
 	public JButton[] track=new JButton[100];
 	public int[] nums=new int[100];
 	public int indoor;
@@ -91,7 +93,7 @@ public class beneaththemanor extends JFrame
             gold=0;
             lives=3;
             level=1;
-            
+            itemCounter=0;
             x= floor.get_starting_x();
             y= floor.get_starting_y();
             
@@ -397,11 +399,12 @@ public class beneaththemanor extends JFrame
 		public JLabel goldDisplay = new JLabel("Gold: " + gold, JLabel.CENTER);
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
         public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
+        public JLabel itemsDisplay = new JLabel("Items: " + itemCounter, JLabel.CENTER);
         
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
 		setBackground(Color.BLACK);
-		GridLayout grid=new GridLayout(1,3,0,0);
+		GridLayout grid=new GridLayout(1,4,0,0);
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
@@ -414,6 +417,9 @@ public class beneaththemanor extends JFrame
 		levelDisplay.setForeground(Color.WHITE);
         levelDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(levelDisplay);
+        itemsDisplay.setForeground(Color.WHITE);
+        itemsDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(itemsDisplay);
         
         
 		}
