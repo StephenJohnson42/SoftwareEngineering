@@ -18,10 +18,12 @@ public class beneaththemanor extends JFrame
 	public Icon coins = new ImageIcon(getClass().getResource("coins.png"));
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
 	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
+	public Icon trap = new ImageIcon(getClass().getResource("pit trap.png"));
 	
 	public Items[] charItems=new Items[10];			//Array for holding the items
 	public int itemCounter;							//How many items are being held
-	public int potionspot; 
+	public int potionspot; 							//Spot for potions
+	public int trapspot;							//Spot for traps
 	public int itemtype;
 	
 	public int health;
@@ -30,7 +32,6 @@ public class beneaththemanor extends JFrame
 	
 	public JButton[] track=new JButton[100];
 	public int[] nums=new int[100];
-	public int[] itemFloorPLan=new int[100];
 	public int indoor;
 	public int[] outdoor=new int[4]; //NSEW
     public startGame start=new startGame();
@@ -91,9 +92,6 @@ public class beneaththemanor extends JFrame
             	}
                 
             }
-            for (int i=11; i<90; i++) {
-            	itemFloorPLan[i] = 0;
-            }
             
             floor = new FloorGen();
             floor.Generate();
@@ -150,10 +148,19 @@ public class beneaththemanor extends JFrame
 	            	potionspot=rand.nextInt(99)+1;
 	            
 	            track[potionspot].setIcon(potion);
-	            nums[potionspot]=2;
-	            itemFloorPLan[potionspot] = 1;
+	            nums[potionspot]=3;
             }
             //End of potion spot testing
+            
+            //Trap  spot testing
+            int trapchance = rand.nextInt(1);
+            if(trapchance == 0) {
+	            trapspot=0;
+	            while (nums[trapspot]==0)
+	            	trapspot=rand.nextInt(99)+1;
+	            nums[trapspot]=4;
+            }
+            //End of Trap spot testing
             
 			track[trackmover].setFocusable(true);
 			track[trackmover].setIcon(character);
@@ -172,22 +179,34 @@ public class beneaththemanor extends JFrame
             	    		newRoom(50);
             	    	}
             	    	else if (x==1) {
-            	    	track[trackmover].setIcon(blackspace);
-            	        trackmover--;
-            	        track[trackmover].setIcon(character);
+            	    		if(nums[trackmover] != 4 )
+            	    			track[trackmover].setIcon(blackspace);
+	            	        trackmover--;
+	            	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		if(itemFloorPLan[trackmover-1] ==1){
-            	    			health = health + 20;
-            	    			itemFloorPLan[trackmover-1] = 0;
-            	    		}
-            	    		else
-            	    			gold=gold+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
-            	    		track[trackmover].setIcon(blackspace);
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover--;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
+            	    	}
+            	    	else if(x==3) {
+            	    		health = health + 20;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	        trackmover--;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
+            	    	}
+            	    	else if(x==4) {
+            	    		health = health - 50;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	        trackmover--;
+                	        track[trapspot].setIcon(trap);
+                	        nums[trackmover]=4;
             	    	}
             	    	
             	    }
@@ -198,22 +217,34 @@ public class beneaththemanor extends JFrame
             	    		newRoom(59);
             	    	}
             	    	else if (x==1) {
-            	    	track[trackmover].setIcon(blackspace);
-            	        trackmover++;
-            	        track[trackmover].setIcon(character);
+            	    		if(nums[trackmover] != 4 )
+            	    			track[trackmover].setIcon(blackspace);
+	            	        trackmover++;
+	            	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		if(itemFloorPLan[trackmover+1] ==1){
-            	    			health = health + 20;
-            	    			itemFloorPLan[trackmover+1] = 0;
-            	    		}
-            	    		else
-            	    			gold=gold+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
-            	    		track[trackmover].setIcon(blackspace);
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
+            	    	}
+            	    	else if(x==3) {
+            	    		health = health + 20;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	        trackmover++;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
+            	    	}
+            	    	else if(x==4) {
+            	    		health = health - 50;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	        trackmover++;
+                	        track[trapspot].setIcon(trap);
+                	        nums[trackmover]=4;
             	    	}
             	    	
             	    }
@@ -227,22 +258,34 @@ public class beneaththemanor extends JFrame
             	    		newFloor();
             	    	}
             	    	else if (x==1) {
-            	    	track[trackmover].setIcon(blackspace);
-            	        trackmover=trackmover-10;
-            	        track[trackmover].setIcon(character);
+            	    		if(nums[trackmover] != 4 )
+            	    			track[trackmover].setIcon(blackspace);
+	            	        trackmover=trackmover-10;
+	            	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		if(itemFloorPLan[trackmover-10] ==1){
-            	    			health = health + 20;
-            	    			itemFloorPLan[trackmover-10] = 0;
-            	    		}
-            	    		else
-            	    			gold=gold+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
-            	    		track[trackmover].setIcon(blackspace);
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover=trackmover-10;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
+            	    	}
+            	    	else if(x==3) {
+            	    		health = health + 20;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	        trackmover=trackmover-10;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
+            	    	}
+            	    	else if(x==4) {
+            	    		health = health - 50;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	        trackmover=trackmover-10;
+                	        track[trapspot].setIcon(trap);
+                	        nums[trackmover]=4;
             	    	}
             	    	
             	    }
@@ -253,24 +296,35 @@ public class beneaththemanor extends JFrame
             	    		newRoom(95);
             	    	}
             	    	else if (x==1) {
-            	    	track[trackmover].setIcon(blackspace);
-            	    	trackmover=trackmover+10;
-            	    	track[trackmover].setIcon(character);
+            	    		if(nums[trackmover] != 4 )
+            	    			track[trackmover].setIcon(blackspace);
+	            	    	trackmover=trackmover+10;
+	            	    	track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		if(itemFloorPLan[trackmover+10] ==1){
-            	    			health = health + 20;
-            	    			itemFloorPLan[trackmover+10] = 0;
-            	    		}
-            	    		else
-            	    			gold=gold+100;
+            	    		gold=gold+100;
             	    		Hud.UpdateStats();
-            	    		track[trackmover].setIcon(blackspace);
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
                 	    	track[trackmover].setIcon(character);
                 	    	nums[trackmover]=1;
             	    	}
-            	    	
+            	    	else if(x==3) {
+            	    		health = health + 20;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	    	trackmover=trackmover+10;
+                	    	track[trackmover].setIcon(character);
+                	    	nums[trackmover]=1;
+            	    	}
+            	    	else if(x==4) {
+            	    		health = health - 50;
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    	trackmover=trackmover+10;
+                	    	 track[trapspot].setIcon(trap);
+                	    	nums[trackmover]=4;
+            	    	}
             	    }
                 }
 
@@ -389,11 +443,20 @@ public class beneaththemanor extends JFrame
 	            	potionspot=rand.nextInt(99)+1;
 	            
 	            track[potionspot].setIcon(potion);
-	            nums[potionspot]=2;
+	            nums[potionspot]=3;
 	            track[trackmover].setIcon(character);
-	            itemFloorPLan[potionspot] = 1;
             }
             //End of potion spot testing
+          //Trap spot testing
+            int trapchance = rand.nextInt(1);
+            if(trapchance == 0) {
+	            trapspot=0;
+	            while (nums[trapspot]==0)
+	            	trapspot=rand.nextInt(99)+1;
+	            nums[trapspot]=4;
+	            track[trackmover].setIcon(character);
+            }
+            //End of Trap spot testing
             
         }
         
