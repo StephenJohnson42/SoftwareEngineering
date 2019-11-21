@@ -21,6 +21,10 @@ public class beneaththemanor extends JFrame
 	
 	public Items[] charItems=new Items[10];			//Array for holding the items
 	public int itemCounter;							//How many items are being held
+	public int health;
+	public int damage;
+	
+	
 	public JButton[] track=new JButton[100];
 	public int[] nums=new int[100];
 	public int indoor;
@@ -51,7 +55,10 @@ public class beneaththemanor extends JFrame
     {
         //sets up the board
         public startGame(){
-        	
+        	//Set up Character
+        	health = 100; 
+        	damage = 50;
+        	//End of Character setup
         	GridLayout grid=new GridLayout(10,10,0,0);
         	grid.setHgap(0); 
             grid.setVgap(0);
@@ -401,11 +408,13 @@ public class beneaththemanor extends JFrame
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
         public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
         public JLabel itemsDisplay = new JLabel("Items: " + itemCounter, JLabel.CENTER);
+        public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
+        public JLabel damageDisplay = new JLabel("Damage: " + damage, JLabel.CENTER);
         
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
 		setBackground(Color.BLACK);
-		GridLayout grid=new GridLayout(1,4,0,0);
+		GridLayout grid=new GridLayout(1,6,0,0);
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
@@ -421,6 +430,12 @@ public class beneaththemanor extends JFrame
         itemsDisplay.setForeground(Color.WHITE);
         itemsDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(itemsDisplay);
+        healthDisplay.setForeground(Color.WHITE);
+        healthDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(healthDisplay);
+        damageDisplay.setForeground(Color.WHITE);
+        damageDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(damageDisplay);
         
         
 		}
@@ -429,6 +444,8 @@ public class beneaththemanor extends JFrame
 			goldDisplay.setText("Gold: " + gold);
 			livesDisplay.setText("Lives: " + lives);
 			levelDisplay.setText("Floor: " + level);
+			healthDisplay.setText("Health: " + health);
+			damageDisplay.setText("Damage: " + damage);
 		}
 		
 	}
