@@ -522,6 +522,11 @@ public class beneaththemanor extends JFrame
         	floor.Generate();
         	floor.draw();
         	level = level+1;
+        	
+        	//checks if the player won
+        	if (level==6)
+        		Hud.YouWin();
+        	
 			Hud.UpdateStats();
 			
         	for (int i=0; i<100; i++) {
@@ -623,6 +628,9 @@ public class beneaththemanor extends JFrame
 		public void CheckHealth() {
 			if (health<=0)
 				System.exit(0);
+		}
+		public void YouWin() {
+			System.exit(0);
 		}
 		
 	}
