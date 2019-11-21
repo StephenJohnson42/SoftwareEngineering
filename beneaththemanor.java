@@ -179,6 +179,7 @@ public class beneaththemanor extends JFrame
             	    	else if (x==2) {
             	    		if(itemFloorPLan[trackmover-1] ==1){
             	    			health = health + 20;
+            	    			itemFloorPLan[trackmover-1] = 0;
             	    		}
             	    		else
             	    			gold=gold+100;
@@ -204,6 +205,7 @@ public class beneaththemanor extends JFrame
             	    	else if (x==2) {
             	    		if(itemFloorPLan[trackmover+1] ==1){
             	    			health = health + 20;
+            	    			itemFloorPLan[trackmover+1] = 0;
             	    		}
             	    		else
             	    			gold=gold+100;
@@ -232,6 +234,7 @@ public class beneaththemanor extends JFrame
             	    	else if (x==2) {
             	    		if(itemFloorPLan[trackmover-10] ==1){
             	    			health = health + 20;
+            	    			itemFloorPLan[trackmover-10] = 0;
             	    		}
             	    		else
             	    			gold=gold+100;
@@ -257,6 +260,7 @@ public class beneaththemanor extends JFrame
             	    	else if (x==2) {
             	    		if(itemFloorPLan[trackmover+10] ==1){
             	    			health = health + 20;
+            	    			itemFloorPLan[trackmover+10] = 0;
             	    		}
             	    		else
             	    			gold=gold+100;
