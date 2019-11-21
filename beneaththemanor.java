@@ -169,16 +169,17 @@ public class beneaththemanor extends JFrame
             }
             //End of Trap spot testing
           //rubble  spot testing
-            for(int i = 0; i < 5; i++) {
+            for(int i = 0; i < 10; i++) {
 	            int rubblechance = rand.nextInt(1);
 	            if(rubblechance == 0) {
 		            rubblespot=0;
 		            while (nums[rubblespot]==0)
 		            	rubblespot=rand.nextInt(99)+1;
-		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58 || rubblespot == 11) {
+		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58
+		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95 || rubblespot == 11) {
 			            break;
 		            }
-		            track[potionspot].setIcon(rubble);
+		            track[rubblespot].setIcon(rubble);
 		            nums[rubblespot]=5;
 	            }
             }
@@ -201,7 +202,9 @@ public class beneaththemanor extends JFrame
             	    		newRoom(50);
             	    	}
             	    	else if (x==1) {
-            	    		if(nums[trackmover] != 4 )
+            	    		if(nums[trackmover] == 4 )
+            	    			track[trackmover].setIcon(trap);
+            	    		else
             	    			track[trackmover].setIcon(blackspace);
 	            	        trackmover--;
 	            	        track[trackmover].setIcon(character);
@@ -227,7 +230,7 @@ public class beneaththemanor extends JFrame
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover--;
-                	        track[trapspot].setIcon(trap);
+                	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
             	    	}
             	    	
@@ -239,7 +242,9 @@ public class beneaththemanor extends JFrame
             	    		newRoom(59);
             	    	}
             	    	else if (x==1) {
-            	    		if(nums[trackmover] != 4 )
+            	    		if(nums[trackmover] == 4 )
+            	    			track[trackmover].setIcon(trap);
+            	    		else
             	    			track[trackmover].setIcon(blackspace);
 	            	        trackmover++;
 	            	        track[trackmover].setIcon(character);
@@ -265,7 +270,7 @@ public class beneaththemanor extends JFrame
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover++;
-                	        track[trapspot].setIcon(trap);
+                	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
             	    	}
             	    	
@@ -280,9 +285,11 @@ public class beneaththemanor extends JFrame
             	    		newFloor();
             	    	}
             	    	else if (x==1) {
-            	    		if(nums[trackmover] != 4 )
+            	    		if(nums[trackmover] == 4 )
+            	    			track[trackmover].setIcon(trap);
+            	    		else
             	    			track[trackmover].setIcon(blackspace);
-	            	        trackmover=trackmover-10;
+            	    		trackmover=trackmover-10;;
 	            	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
@@ -306,7 +313,7 @@ public class beneaththemanor extends JFrame
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover=trackmover-10;
-                	        track[trapspot].setIcon(trap);
+                	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
             	    	}
             	    	
@@ -318,10 +325,12 @@ public class beneaththemanor extends JFrame
             	    		newRoom(95);
             	    	}
             	    	else if (x==1) {
-            	    		if(nums[trackmover] != 4 )
+            	    		if(nums[trackmover] == 4 )
+            	    			track[trackmover].setIcon(trap);
+            	    		else
             	    			track[trackmover].setIcon(blackspace);
-	            	    	trackmover=trackmover+10;
-	            	    	track[trackmover].setIcon(character);
+            	    		trackmover=trackmover+10;;
+	            	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
@@ -344,7 +353,7 @@ public class beneaththemanor extends JFrame
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover=trackmover+10;
-                	    	 track[trapspot].setIcon(trap);
+                	    	 track[trapspot].setIcon(trap_withmc);
                 	    	nums[trackmover]=4;
             	    	}
             	    }
@@ -455,7 +464,7 @@ public class beneaththemanor extends JFrame
             track[coinspot].setIcon(coins);
             nums[coinspot]=2;
             
-            track[trackmover].setIcon(character);
+            
             
             //Potion spot testing
             int potionchance = rand.nextInt(4);
@@ -466,7 +475,7 @@ public class beneaththemanor extends JFrame
 	            
 	            track[potionspot].setIcon(potion);
 	            nums[potionspot]=3;
-	            track[trackmover].setIcon(character);
+	            
             }
             //End of potion spot testing
           //Trap spot testing
@@ -476,11 +485,11 @@ public class beneaththemanor extends JFrame
 	            while (nums[trapspot]==0)
 	            	trapspot=rand.nextInt(99)+1;
 	            nums[trapspot]=4;
-	            track[trackmover].setIcon(character);
+	            
             }
             //End of Trap spot testing
           //Rubble spot testing
-            for(int i = 0; i < 5; i++) {
+            for(int i = 0; i < 10; i++) {
 	            int rubblechance = rand.nextInt(1);
 	            if(rubblechance == 0) {
 		            rubblespot=0;
@@ -492,11 +501,11 @@ public class beneaththemanor extends JFrame
 		            }
 		            track[rubblespot].setIcon(rubble);
 		            nums[rubblespot]=5;
-		            track[trackmover].setIcon(character);
+		            
 	            }
             }
             //End of rubble spot testing
-            
+            track[trackmover].setIcon(character);
         }
         
         public void newFloor(){
