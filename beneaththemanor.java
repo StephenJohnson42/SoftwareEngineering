@@ -19,12 +19,12 @@ public class beneaththemanor extends JFrame
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
 	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
 	public Icon trap = new ImageIcon(getClass().getResource("pit_trap.png"));
-<<<<<<< HEAD
+
 	public Icon trap_withmc = new ImageIcon(getClass().getResource("pit_trap_with_mc.png"));
-	
-=======
+
 	public Icon rubble = new ImageIcon(getClass().getResource("rubble.png"));
->>>>>>> aa64a42c89a89e6ec709cf7ac6c2d10858196843
+
+	
 	
 	public Items[] charItems=new Items[10];			//Array for holding the items
 	public int itemCounter;							//How many items are being held
