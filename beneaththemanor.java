@@ -169,7 +169,7 @@ public class beneaththemanor extends JFrame
             }
             //End of Trap spot testing
           //rubble  spot testing
-            for(int i = 0; i < 10; i++) {
+            for(int i = 0; i < 7; i++) {
 	            int rubblechance = rand.nextInt(1);
 	            if(rubblechance == 0) {
 		            rubblespot=0;
@@ -218,7 +218,7 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 20;
+            	    		health = health + 50;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover--;
@@ -226,7 +226,8 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 50;
+            	    		health = health - 25;
+            	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover--;
@@ -258,7 +259,7 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 20;
+            	    		health = health + 50;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
@@ -266,7 +267,8 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 50;
+            	    		health = health - 25;
+            	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover++;
@@ -282,7 +284,11 @@ public class beneaththemanor extends JFrame
             	    		newRoom(5);
             	    	}
             	    	else if (nums[1]==1 && (trackmover-10)==1) {
-            	    		newFloor();
+            	    		if (gold>=1000) {
+            	    			gold=gold-1000;
+            	    			newFloor();
+            	    			Hud.UpdateStats();
+            	    		}
             	    	}
             	    	else if (x==1) {
             	    		if(nums[trackmover] == 4 )
@@ -301,7 +307,7 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 20;
+            	    		health = health + 50;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover=trackmover-10;
@@ -309,7 +315,8 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 50;
+            	    		health = health - 25;
+            	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover=trackmover-10;
@@ -341,7 +348,7 @@ public class beneaththemanor extends JFrame
                 	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 20;
+            	    		health = health + 50;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
@@ -349,7 +356,8 @@ public class beneaththemanor extends JFrame
                 	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 50;
+            	    		health = health - 25;
+            	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover=trackmover+10;
@@ -489,7 +497,7 @@ public class beneaththemanor extends JFrame
             }
             //End of Trap spot testing
           //Rubble spot testing
-            for(int i = 0; i < 10; i++) {
+            for(int i = 0; i < 7; i++) {
 	            int rubblechance = rand.nextInt(1);
 	            if(rubblechance == 0) {
 		            rubblespot=0;
@@ -611,6 +619,10 @@ public class beneaththemanor extends JFrame
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
 			damageDisplay.setText("Damage: " + damage);
+		}
+		public void CheckHealth() {
+			if (health<=0)
+				System.exit(0);
 		}
 		
 	}
