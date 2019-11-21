@@ -175,8 +175,8 @@ public class beneaththemanor extends JFrame
 		            rubblespot=0;
 		            while (nums[rubblespot]==0)
 		            	rubblespot=rand.nextInt(99)+1;
-		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58) {
-			            continue;
+		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58 || rubblespot == 11) {
+			            break;
 		            }
 		            track[potionspot].setIcon(rubble);
 		            nums[rubblespot]=5;
@@ -487,8 +487,8 @@ public class beneaththemanor extends JFrame
 		            while (nums[rubblespot]==0)
 		            	rubblespot=rand.nextInt(99)+1;
 		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58
-		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95) {
-			            continue;
+		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95 || rubblespot == 11) {
+			            break;
 		            }
 		            track[rubblespot].setIcon(rubble);
 		            nums[rubblespot]=5;

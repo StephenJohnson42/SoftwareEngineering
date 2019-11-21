@@ -18,7 +18,7 @@ public class Monsters{
     private String[] moveList;  //Possible option for having more than one attack option
     //private String[] monsterImg = {"monster.png", "/MonsterPhotos/Monster2.png", "/MonsterPhotos/Monster3.png",
     //"/MonsterPhotos/Monster4.png", "/MonsterPhotos/Monster5.png"};
-}
+
 
 public Monsters(){
     //Chooses a random monster out of the options we have to spawn
@@ -60,3 +60,5 @@ public int getDefenseStat(){
 public int getHealth(){
     return health;                          //Return the health stat of the monster
 }   
+
+}
