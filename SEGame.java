@@ -29,7 +29,7 @@ public class SEGame {
 		menu_window.setIconImage(window_icon.getImage());
 		
 		//make a jlabel with the menu title image 
-		JLabel imgLabel = new JLabel(new ImageIcon(SEGame.class.getResource("menu_background.png")));
+		JLabel imgLabel = new JLabel(new ImageIcon(SEGame.class.getResource("menu_background2.png")));
 		
 		//create the buttons 
 		JButton Start_button=new JButton("Start New Game");  
@@ -107,7 +107,7 @@ public class SEGame {
 		
 		//set menu_window constraints 
 		menu_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		menu_window.setSize(960,500);
+		menu_window.setSize(960,400);
 		menu_window.setResizable(false);
 		
 		//menu_window.getContentPane().setBackground(new Color(39,115,11));
