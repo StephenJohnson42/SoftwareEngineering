@@ -21,12 +21,16 @@ public class beneaththemanor extends JFrame
 	
 	public Items[] charItems=new Items[10];			//Array for holding the items
 	public int itemCounter;							//How many items are being held
+	public int potionspot; 
+	public int itemtype;
+	
 	public int health;
 	public int damage;
 	
 	
 	public JButton[] track=new JButton[100];
 	public int[] nums=new int[100];
+	public int[] itemFloorPLan=new int[100];
 	public int indoor;
 	public int[] outdoor=new int[4]; //NSEW
     public startGame start=new startGame();
@@ -58,6 +62,7 @@ public class beneaththemanor extends JFrame
         	//Set up Character
         	health = 100; 
         	damage = 50;
+        	itemtype = 99;
         	//End of Character setup
         	GridLayout grid=new GridLayout(10,10,0,0);
         	grid.setHgap(0); 
@@ -85,6 +90,9 @@ public class beneaththemanor extends JFrame
             		i++;
             	}
                 
+            }
+            for (int i=11; i<90; i++) {
+            	itemFloorPLan[i] = 0;
             }
             
             floor = new FloorGen();
@@ -134,6 +142,19 @@ public class beneaththemanor extends JFrame
             track[coinspot].setIcon(coins);
             nums[coinspot]=2;
             
+            //Potion spot testing
+            int potionchance = rand.nextInt(4);
+            if(potionchance == 0) {
+	            potionspot=0;
+	            while (nums[potionspot]==0)
+	            	potionspot=rand.nextInt(99)+1;
+	            
+	            track[potionspot].setIcon(potion);
+	            nums[potionspot]=2;
+	            itemFloorPLan[potionspot] = 1;
+            }
+            //End of potion spot testing
+            
 			track[trackmover].setFocusable(true);
 			track[trackmover].setIcon(character);
 			
@@ -156,13 +177,18 @@ public class beneaththemanor extends JFrame
             	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		gold=gold+100;
+            	    		if(itemFloorPLan[trackmover-1] ==1){
+            	    			health = health + 20;
+            	    		}
+            	    		else
+            	    			gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	        trackmover--;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
             	    	}
+            	    	
             	    }
 
             	    if (key == KeyEvent.VK_RIGHT) {
@@ -176,13 +202,18 @@ public class beneaththemanor extends JFrame
             	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		gold=gold+100;
+            	    		if(itemFloorPLan[trackmover+1] ==1){
+            	    			health = health + 20;
+            	    		}
+            	    		else
+            	    			gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	        trackmover++;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
             	    	}
+            	    	
             	    }
 
             	    if (key == KeyEvent.VK_UP) {
@@ -199,13 +230,18 @@ public class beneaththemanor extends JFrame
             	        track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		gold=gold+100;
+            	    		if(itemFloorPLan[trackmover-10] ==1){
+            	    			health = health + 20;
+            	    		}
+            	    		else
+            	    			gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	        trackmover=trackmover-10;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
             	    	}
+            	    	
             	    }
 
             	    if (key == KeyEvent.VK_DOWN) {
@@ -219,13 +255,18 @@ public class beneaththemanor extends JFrame
             	    	track[trackmover].setIcon(character);
             	    	}
             	    	else if (x==2) {
-            	    		gold=gold+100;
+            	    		if(itemFloorPLan[trackmover+10] ==1){
+            	    			health = health + 20;
+            	    		}
+            	    		else
+            	    			gold=gold+100;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);
                 	    	trackmover=trackmover+10;
                 	    	track[trackmover].setIcon(character);
                 	    	nums[trackmover]=1;
             	    	}
+            	    	
             	    }
                 }
 
@@ -335,6 +376,20 @@ public class beneaththemanor extends JFrame
             nums[coinspot]=2;
             
             track[trackmover].setIcon(character);
+            
+            //Potion spot testing
+            int potionchance = rand.nextInt(4);
+            if(potionchance == 0) {
+	            potionspot=0;
+	            while (nums[potionspot]==0)
+	            	potionspot=rand.nextInt(99)+1;
+	            
+	            track[potionspot].setIcon(potion);
+	            nums[potionspot]=2;
+	            track[trackmover].setIcon(character);
+	            itemFloorPLan[potionspot] = 1;
+            }
+            //End of potion spot testing
             
         }
         
