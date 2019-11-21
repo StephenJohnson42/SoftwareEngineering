@@ -19,11 +19,13 @@ public class beneaththemanor extends JFrame
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
 	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
 	public Icon trap = new ImageIcon(getClass().getResource("pit_trap.png"));
+	public Icon rubble = new ImageIcon(getClass().getResource("rubble.png"));
 	
 	public Items[] charItems=new Items[10];			//Array for holding the items
 	public int itemCounter;							//How many items are being held
 	public int potionspot; 							//Spot for potions
 	public int trapspot;							//Spot for traps
+	public int rubblespot;							//Spot for rubble
 	public int itemtype;
 	
 	public int health;
@@ -159,6 +161,21 @@ public class beneaththemanor extends JFrame
 	            while (nums[trapspot]==0)
 	            	trapspot=rand.nextInt(99)+1;
 	            nums[trapspot]=4;
+            }
+            //End of Trap spot testing
+          //rubble  spot testing
+            for(int i = 0; i < 5; i++) {
+	            int rubblechance = rand.nextInt(1);
+	            if(rubblechance == 0) {
+		            rubblespot=0;
+		            while (nums[rubblespot]==0)
+		            	rubblespot=rand.nextInt(99)+1;
+		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58) {
+			            continue;
+		            }
+		            track[potionspot].setIcon(rubble);
+		            nums[rubblespot]=5;
+	            }
             }
             //End of Trap spot testing
             
@@ -457,6 +474,23 @@ public class beneaththemanor extends JFrame
 	            track[trackmover].setIcon(character);
             }
             //End of Trap spot testing
+          //Rubble spot testing
+            for(int i = 0; i < 5; i++) {
+	            int rubblechance = rand.nextInt(1);
+	            if(rubblechance == 0) {
+		            rubblespot=0;
+		            while (nums[rubblespot]==0)
+		            	rubblespot=rand.nextInt(99)+1;
+		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58
+		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95) {
+			            continue;
+		            }
+		            track[rubblespot].setIcon(rubble);
+		            nums[rubblespot]=5;
+		            track[trackmover].setIcon(character);
+	            }
+            }
+            //End of rubble spot testing
             
         }
         
