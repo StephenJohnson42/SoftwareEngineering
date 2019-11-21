@@ -528,7 +528,6 @@ public class beneaththemanor extends JFrame
 	{
 		public JLabel goldDisplay = new JLabel("Gold: " + gold, JLabel.CENTER);
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
-        public JLabel livesDisplay = new JLabel("Lives: " + lives, JLabel.CENTER);
         public JLabel itemsDisplay = new JLabel("Items: " + itemCounter, JLabel.CENTER);
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
         public JLabel damageDisplay = new JLabel("Damage: " + damage, JLabel.CENTER);
@@ -536,16 +535,13 @@ public class beneaththemanor extends JFrame
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
 		setBackground(Color.BLACK);
-		GridLayout grid=new GridLayout(1,6,0,0);
+		GridLayout grid=new GridLayout(1,5,0,0);
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
         goldDisplay.setForeground(Color.WHITE);
         goldDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(goldDisplay);
-        livesDisplay.setForeground(Color.WHITE);
-        livesDisplay.setFont(new Font("Serif", Font.BOLD, 16));
-        add(livesDisplay);
 		levelDisplay.setForeground(Color.WHITE);
         levelDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(levelDisplay);
@@ -564,7 +560,6 @@ public class beneaththemanor extends JFrame
 		
 		public void UpdateStats() {
 			goldDisplay.setText("Gold: " + gold);
-			livesDisplay.setText("Lives: " + lives);
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
 			damageDisplay.setText("Damage: " + damage);
