@@ -14,19 +14,19 @@ Things still needed to be done:
 public class Items{
   private int itemNum;
   private int maxTypes;
-  private String[] itemImg = {"potion.png", "/ItemPhotos/item1.png", 
+  private String[] itemImg = {"sword.png", "/ItemPhotos/item1.png", 
   "/ItemPhotos/item2.png", "/ItemPhotos/item3.png", "/ItemPhotos/item4.png", 
   "/ItemPhotos/item5.png", "/ItemPhotos/item6.png", "/ItemPhotos/item7.png", 
   "/ItemPhotos/item8.png", "/ItemPhotos/item9.png"};
   
   public Items(){
-      maxTypes = 10;
+      maxTypes = 1;
       Random rand = new Random(); //Create random number generator
       itemNum = rand.nextInt(maxTypes); //Returns a random int between 0 and 9
                                   //Random numbers will be however many items we want
   }
   public Items(int determined){
-      maxTypes = 10;
+      maxTypes = 1;
       itemNum = determined; //Returns a random int between 0 and 9
                                   //Random numbers will be however many items we want
   }
@@ -47,20 +47,6 @@ public class Items{
           return 10;
       if(match == 2)
           return 10;
-      if(match == 3)
-          return 10;
-      if(match == 4)
-          return 10;
-      if(match == 5)
-          return 10;
-      if(match == 6)
-          return 10;
-      if(match == 7)
-          return 10;
-      if(match == 8)
-          return 10;
-      if(match == 9)
-          return 10;
       return 0;
   }
   public int getDamageMod(){
@@ -68,22 +54,6 @@ public class Items{
       if(match == 0)
           return 10;
       if(match == 1)
-          return 10;
-      if(match == 2)
-          return 10;
-      if(match == 3)
-          return 10;
-      if(match == 4)
-          return 10;
-      if(match == 5)
-          return 10;
-      if(match == 6)
-          return 10;
-      if(match == 7)
-          return 10;
-      if(match == 8)
-          return 10;
-      if(match == 9)
           return 10;
       return 0;
   }
@@ -93,22 +63,6 @@ public class Items{
           return 10;
       if(match == 1)
           return 10;
-      if(match == 2)
-          return 10;
-      if(match == 3)
-          return 10;
-      if(match == 4)
-          return 10;
-      if(match == 5)
-          return 10;
-      if(match == 6)
-          return 10;
-      if(match == 7)
-          return 10;
-      if(match == 8)
-          return 10;
-      if(match == 9)
-          return 10;
       return 0;
   }
   public int stat4(){
@@ -116,22 +70,6 @@ public class Items{
       if(match == 0)
           return 10;
       if(match == 1)
-          return 10;
-      if(match == 2)
-          return 10;
-      if(match == 3)
-          return 10;
-      if(match == 4)
-          return 10;
-      if(match == 5)
-          return 10;
-      if(match == 6)
-          return 10;
-      if(match == 7)
-          return 10;
-      if(match == 8)
-          return 10;
-      if(match == 9)
           return 10;
       return 0;
   }

@@ -20,19 +20,20 @@ public class beneaththemanor extends JFrame
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
 	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
 	public Icon trap = new ImageIcon(getClass().getResource("pit_trap.png"));
-
+	public Icon sword = new ImageIcon(getClass().getResource("sword.png"));
 	public Icon trap_withmc = new ImageIcon(getClass().getResource("pit_trap_with_mc.png"));
 
 	public Icon rubble = new ImageIcon(getClass().getResource("rubble.png"));
-
+	public boolean swordAcquired;
 	
 	
-	public Items[] charItems=new Items[10];			//Array for holding the items
+	public Items[] charItems=new Items[5];			//Array for holding the items
+	public int itemCounter;
 	public int potionCount;							//How many items are being held
 	public int potionspot; 							//Spot for potions
 	public int trapspot;							//Spot for traps
 	public int rubblespot;							//Spot for rubble
-	public int itemtype;
+	public int itemspot;							//Spot for item
 	
 	public int health;
 	public int damage;
@@ -71,7 +72,7 @@ public class beneaththemanor extends JFrame
         	//Set up Character
         	health = 100; 
         	damage = 50;
-        	itemtype = 99;
+        	itemCounter = 0;
         	//End of Character setup
         	GridLayout grid=new GridLayout(10,10,0,0);
         	grid.setHgap(0); 
@@ -112,6 +113,7 @@ public class beneaththemanor extends JFrame
             
             trackmover=45;
             
+            swordAcquired=false;
             gold=0;
             lives=3;
             level=1;
@@ -159,6 +161,20 @@ public class beneaththemanor extends JFrame
 	            nums[potionspot]=3;
             }
             //End of potion spot testing
+          //Item spot testing
+            if (swordAcquired==false) {
+            int itemchance = rand.nextInt(4);
+            if(itemchance == 0) {
+	            itemspot=0;
+	            while (nums[itemspot]==0)
+	            	itemspot=rand.nextInt(99)+1;
+	            Items Item =new Items();
+	            Icon item = new ImageIcon(getClass().getResource(Item.getImage()));
+	            track[itemspot].setIcon(item);
+	            nums[itemspot]=6;
+            }
+            }
+            //End of Item spot testing
             
             //Trap  spot testing
             int trapchance = rand.nextInt(1);
@@ -237,7 +253,6 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		//health = health + 50;
 							potionCount = potionCount + 1;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
@@ -253,6 +268,17 @@ public class beneaththemanor extends JFrame
                 	        trackmover--;
                 	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
+            	    	}
+            	    	else if(x==6) {
+            	    		Items Item =new Items();
+            	    		charItems[itemCounter] = Item;			//Array for holding the items
+            	    		itemCounter++;
+            	    		Hud.UpdateStats();
+            	    		swordAcquired=true;
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	        trackmover--;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
             	    	}
             	    	
             	    }
@@ -296,7 +322,17 @@ public class beneaththemanor extends JFrame
                 	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
             	    	}
-            	    	
+            	    	else if(x==6) {
+            	    		Items Item =new Items();
+            	    		charItems[itemCounter] = Item;			//Array for holding the items
+            	    		itemCounter++;
+            	    		Hud.UpdateStats();
+            	    		swordAcquired=true;
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	        trackmover++;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
+            	    	}
             	    }
 
             	    if (key == KeyEvent.VK_UP) {
@@ -328,7 +364,6 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		//health = health + 50;
 							potionCount = potionCount + 1;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
@@ -344,6 +379,17 @@ public class beneaththemanor extends JFrame
                 	        trackmover=trackmover-10;
                 	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
+            	    	}
+            	    	else if(x==6) {
+            	    		Items Item =new Items();
+            	    		charItems[itemCounter] = Item;			//Array for holding the items
+            	    		itemCounter++;
+            	    		Hud.UpdateStats();
+            	    		swordAcquired=true;
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	        trackmover=trackmover-10;
+                	        track[trackmover].setIcon(character);
+                	        nums[trackmover]=1;
             	    	}
             	    	
             	    }
@@ -386,6 +432,17 @@ public class beneaththemanor extends JFrame
                 	    	trackmover=trackmover+10;
                 	    	 track[trapspot].setIcon(trap_withmc);
                 	    	nums[trackmover]=4;
+            	    	}
+            	    	else if(x==6) {
+            	    		Items Item =new Items();
+            	    		charItems[itemCounter] = Item;			//Array for holding the items
+            	    		itemCounter++;
+            	    		Hud.UpdateStats();
+            	    		swordAcquired=true;
+            	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
+                	    	trackmover=trackmover+10;
+                	    	track[trackmover].setIcon(character);
+                	    	nums[trackmover]=1;
             	    	}
             	    }
 					
@@ -518,6 +575,20 @@ public class beneaththemanor extends JFrame
 	            
             }
             //End of potion spot testing
+          //Item spot testing
+            if (swordAcquired==false) {
+            int itemchance = rand.nextInt(4);
+            if(itemchance == 0) {
+	            itemspot=0;
+	            while (nums[itemspot]==0)
+	            	itemspot=rand.nextInt(99)+1;
+	            Items Item =new Items();
+	            Icon item = new ImageIcon(getClass().getResource(Item.getImage()));
+	            track[itemspot].setIcon(item);
+	            nums[itemspot]=6;
+            }
+            }
+            //End of Item spot testing
           //Trap spot testing
             int trapchance = rand.nextInt(1);
             if(trapchance == 0) {
@@ -550,7 +621,7 @@ public class beneaththemanor extends JFrame
         
         public void newFloor(){
         	
-			
+			swordAcquired=false;
         	floor.Generate();
         	floor.draw();
         	level = level+1;
@@ -623,7 +694,7 @@ public class beneaththemanor extends JFrame
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
         public JLabel potionDisplay = new JLabel("Potions: " + potionCount, JLabel.CENTER);
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
-        //public JLabel damageDisplay = new JLabel("Damage: " + damage, JLabel.CENTER);
+        public JLabel swordDisplay = new JLabel("Swords: " + itemCounter, JLabel.CENTER);
         
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
@@ -644,9 +715,9 @@ public class beneaththemanor extends JFrame
         healthDisplay.setForeground(Color.WHITE);
         healthDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(healthDisplay);
-       // damageDisplay.setForeground(Color.WHITE);
-       // damageDisplay.setFont(new Font("Serif", Font.BOLD, 16));
-       // add(damageDisplay);
+        swordDisplay.setForeground(Color.WHITE);
+        swordDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(swordDisplay);
         
         
 		}
@@ -655,7 +726,7 @@ public class beneaththemanor extends JFrame
 			goldDisplay.setText("Gold: " + gold);
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
-			//damageDisplay.setText("Damage: " + damage);
+			swordDisplay.setText("Swords: " + itemCounter);
 			potionDisplay.setText("Potions: " + potionCount);
 		}
 		
