@@ -27,7 +27,7 @@ public class beneaththemanor extends JFrame
 	
 	
 	public Items[] charItems=new Items[10];			//Array for holding the items
-	public int itemCounter;							//How many items are being held
+	public int potionCount;							//How many items are being held
 	public int potionspot; 							//Spot for potions
 	public int trapspot;							//Spot for traps
 	public int rubblespot;							//Spot for rubble
@@ -114,7 +114,7 @@ public class beneaththemanor extends JFrame
             gold=0;
             lives=3;
             level=1;
-            itemCounter=0;
+            potionCount=0;
             x= floor.get_starting_x();
             y= floor.get_starting_y();
             
@@ -196,6 +196,22 @@ public class beneaththemanor extends JFrame
             	
             		int x;
             		
+					
+					if (key == KeyEvent.VK_P) {
+            	    	
+							if(potionCount>0)
+							{
+							health = health + 50;
+							potionCount = potionCount - 1;
+							Hud.UpdateStats();
+							}
+						
+						
+						
+						
+            	    	}
+            	    
+					
             	    if (key == KeyEvent.VK_LEFT) {
             	    	x=nums[trackmover-1];
             	    	if ((trackmover-1)==50 && outdoor[3]==1){
@@ -218,7 +234,8 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 50;
+            	    		//health = health + 50;
+							potionCount = potionCount + 1;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover--;
@@ -259,7 +276,8 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 50;
+            	    		//health = health + 50;
+							potionCount = potionCount + 1;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
@@ -307,7 +325,8 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 50;
+            	    		//health = health + 50;
+							potionCount = potionCount + 1;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover=trackmover-10;
@@ -348,7 +367,8 @@ public class beneaththemanor extends JFrame
                 	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==3) {
-            	    		health = health + 50;
+            	    		//health = health + 50;
+							potionCount = potionCount + 1;
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
@@ -365,6 +385,9 @@ public class beneaththemanor extends JFrame
                 	    	nums[trackmover]=4;
             	    	}
             	    }
+					
+					
+					
                 }
 
 				@Override
@@ -589,7 +612,7 @@ public class beneaththemanor extends JFrame
 	{
 		public JLabel goldDisplay = new JLabel("Gold: " + gold, JLabel.CENTER);
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
-        public JLabel itemsDisplay = new JLabel("Items: " + itemCounter, JLabel.CENTER);
+        public JLabel potionDisplay = new JLabel("Potions: " + potionCount, JLabel.CENTER);
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
         public JLabel damageDisplay = new JLabel("Damage: " + damage, JLabel.CENTER);
         
@@ -606,9 +629,9 @@ public class beneaththemanor extends JFrame
 		levelDisplay.setForeground(Color.WHITE);
         levelDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(levelDisplay);
-        itemsDisplay.setForeground(Color.WHITE);
-        itemsDisplay.setFont(new Font("Serif", Font.BOLD, 16));
-        add(itemsDisplay);
+        potionDisplay.setForeground(Color.WHITE);
+        potionDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(potionDisplay);
         healthDisplay.setForeground(Color.WHITE);
         healthDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(healthDisplay);
@@ -624,7 +647,7 @@ public class beneaththemanor extends JFrame
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
 			damageDisplay.setText("Damage: " + damage);
-			itemsDisplay.setText("Items: " + itemCounter);
+			potionDisplay.setText("Potions: " + potionCount);
 		}
 		public void CheckHealth() {
 			if (health<=0)
