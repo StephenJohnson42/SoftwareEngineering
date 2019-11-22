@@ -22,9 +22,10 @@ public class beneaththemanor extends JFrame
 	public Icon trap = new ImageIcon(getClass().getResource("pit_trap.png"));
 	public Icon sword = new ImageIcon(getClass().getResource("sword.png"));
 	public Icon trap_withmc = new ImageIcon(getClass().getResource("pit_trap_with_mc.png"));
-
 	public Icon rubble = new ImageIcon(getClass().getResource("rubble.png"));
+	public Icon fire = new ImageIcon(getClass().getResource("fire.png"));
 	public boolean swordAcquired;
+	public boolean enemyFighting;
 	
 	
 	public Items[] charItems=new Items[5];			//Array for holding the items
@@ -114,6 +115,7 @@ public class beneaththemanor extends JFrame
             trackmover=45;
             
             swordAcquired=false;
+            enemyFighting=false;
             gold=0;
             lives=3;
             level=1;
@@ -240,6 +242,9 @@ public class beneaththemanor extends JFrame
             	    	x=nums[trackmover-1];
             	    	if ((trackmover-1)==50 && outdoor[3]==1){
             	    		newRoom(50);
+            	    		if (enemyFighting==true) {
+            	    			track[41].setIcon(enemy);
+            	            	nums[41]=1;}
             	    	}
             	    	else if (x==1) {
             	    		if(nums[trackmover] == 4 )
@@ -248,6 +253,27 @@ public class beneaththemanor extends JFrame
             	    			track[trackmover].setIcon(blackspace);
 	            	        trackmover--;
 	            	        track[trackmover].setIcon(character);
+	            	        
+	            	        if (enemyFighting==true) {
+	            	        	int firespot=0;
+	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
+	            	        		 firespot=rand.nextInt(99)+1;
+	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
+	            	 	            
+	            	             }
+	            	             else 
+	            	 	            track[firespot].setIcon(fire);
+	            	             
+	            	             if (firespot==trackmover) {
+	            	            	 health=health-10;
+	            	            	 Hud.UpdateStats();
+	            	             }
+	            	             
+	            	             if (trackmover==51 && swordAcquired)
+	            	             {
+	            	            	 enemyFighting=false;
+	            	             }
+	            	        }
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
@@ -292,6 +318,9 @@ public class beneaththemanor extends JFrame
             	    	x=nums[trackmover+1];
             	    	if ((trackmover+1)==59 && outdoor[2]==1){
             	    		newRoom(59);
+            	    		if (enemyFighting==true) {
+            	    			track[41].setIcon(enemy);
+            	            	nums[41]=1;}
             	    	}
             	    	else if (x==1) {
             	    		if(nums[trackmover] == 4 )
@@ -300,6 +329,26 @@ public class beneaththemanor extends JFrame
             	    			track[trackmover].setIcon(blackspace);
 	            	        trackmover++;
 	            	        track[trackmover].setIcon(character);
+	            	        
+	            	        if (enemyFighting==true) {
+	            	        	int firespot=0;
+	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
+	            	        		 firespot=rand.nextInt(99)+1;
+	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
+	            	 	            
+	            	             }
+	            	             else 
+	            	 	            track[firespot].setIcon(fire);
+	            	             if (firespot==trackmover) {
+	            	            	 health=health-10;
+	            	            	 Hud.UpdateStats();
+	            	             }
+	            	             
+	            	             if (trackmover==51 && swordAcquired)
+	            	             {
+	            	            	 enemyFighting=false;
+	            	             }
+	            	        }
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
@@ -344,6 +393,9 @@ public class beneaththemanor extends JFrame
             	    	x=nums[trackmover-10];
             	    	if ((trackmover-10)==5 && outdoor[0]==1){
             	    		newRoom(5);
+            	    		if (enemyFighting==true) {
+            	    			track[41].setIcon(enemy);
+            	            	nums[41]=1;}
             	    	}
             	    	else if (nums[1]==1 && (trackmover-10)==1) {
             	    		if (gold>=1000) {
@@ -359,6 +411,27 @@ public class beneaththemanor extends JFrame
             	    			track[trackmover].setIcon(blackspace);
             	    		trackmover=trackmover-10;;
 	            	        track[trackmover].setIcon(character);
+	            	        
+	            	        if (enemyFighting==true) {
+	            	        	int firespot=0;
+	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
+	            	        		 firespot=rand.nextInt(99)+1;
+	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
+	            	 	            
+	            	             }
+	            	             else 
+	            	 	            track[firespot].setIcon(fire);
+	            	             
+	            	             if (firespot==trackmover) {
+	            	            	 health=health-10;
+	            	            	 Hud.UpdateStats();
+	            	             }
+	            	             
+	            	             if (trackmover==51 && swordAcquired)
+	            	             {
+	            	            	 enemyFighting=false;
+	            	             }
+	            	        }
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
@@ -403,6 +476,9 @@ public class beneaththemanor extends JFrame
             	    	x=nums[trackmover+10];
             	    	if ((trackmover+10)==95 && outdoor[1]==1){
             	    		newRoom(95);
+            	    		if (enemyFighting==true) {
+            	    			track[41].setIcon(enemy);
+            	            	nums[41]=1;}
             	    	}
             	    	else if (x==1) {
             	    		if(nums[trackmover] == 4 )
@@ -411,6 +487,27 @@ public class beneaththemanor extends JFrame
             	    			track[trackmover].setIcon(blackspace);
             	    		trackmover=trackmover+10;;
 	            	        track[trackmover].setIcon(character);
+	            	        
+	            	        if (enemyFighting==true) {
+	            	        	int firespot=0;
+	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
+	            	        		 firespot=rand.nextInt(99)+1;
+	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
+	            	 	            
+	            	             }
+	            	             else 
+	            	 	            track[firespot].setIcon(fire);
+	            	             
+	            	             if (firespot==trackmover) {
+	            	            	 health=health-10;
+	            	            	 Hud.UpdateStats();
+	            	             }
+	            	             
+	            	             if (trackmover==51 && swordAcquired)
+	            	             {
+	            	            	 enemyFighting=false;
+	            	             }
+	            	        }
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
@@ -524,6 +621,8 @@ public class beneaththemanor extends JFrame
             outdoor[1]=0;
             outdoor[2]=0;
             outdoor[3]=0;
+        
+            enemyFighting=false;
             
             if (floor.check_door_north(x,y)) {
             	outdoor[0]=1;
@@ -551,10 +650,12 @@ public class beneaththemanor extends JFrame
 				if(gold<1000)
 				{
 					track[1].setIcon(door);
+					enemyFighting=true;
 				}
 				else
 				{
 					track[1].setIcon(stairs);
+					enemyFighting=true;
 				}
             }
             
@@ -702,6 +803,8 @@ public class beneaththemanor extends JFrame
             track[trackmover].setIcon(character);
             
         }
+        
+       
         
     }
     
