@@ -204,6 +204,7 @@ public class beneaththemanor extends JFrame
 							if(potionCount>0)
 							{
 							health = health + 50;
+							Hud.CheckHealth();
 							potionCount = potionCount - 1;
 							Hud.UpdateStats();
 							}
@@ -388,10 +389,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    }
 					
-					if(gold>=1000)
-					{
-						track[1].setIcon(stairs);
-					}
+
                 }
 
 				@Override
@@ -625,7 +623,7 @@ public class beneaththemanor extends JFrame
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
         public JLabel potionDisplay = new JLabel("Potions: " + potionCount, JLabel.CENTER);
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
-        public JLabel damageDisplay = new JLabel("Damage: " + damage, JLabel.CENTER);
+        //public JLabel damageDisplay = new JLabel("Damage: " + damage, JLabel.CENTER);
         
 		public GameHud(){
 		setPreferredSize(new Dimension(640, 200));
@@ -646,9 +644,9 @@ public class beneaththemanor extends JFrame
         healthDisplay.setForeground(Color.WHITE);
         healthDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(healthDisplay);
-        damageDisplay.setForeground(Color.WHITE);
-        damageDisplay.setFont(new Font("Serif", Font.BOLD, 16));
-        add(damageDisplay);
+       // damageDisplay.setForeground(Color.WHITE);
+       // damageDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+       // add(damageDisplay);
         
         
 		}
@@ -657,13 +655,25 @@ public class beneaththemanor extends JFrame
 			goldDisplay.setText("Gold: " + gold);
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
-			damageDisplay.setText("Damage: " + damage);
+			//damageDisplay.setText("Damage: " + damage);
 			potionDisplay.setText("Potions: " + potionCount);
 		}
+		
+	
+		
 		public void CheckHealth() {
 			if (health<=0)
+			{
 				System.exit(0);
+				
+			}
+			
+			if (health>100)
+			{
+				health=100;
+			}
 		}
+		
 		public void YouWin() {
 			System.exit(0);
 		}
