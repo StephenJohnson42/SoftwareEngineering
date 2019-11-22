@@ -213,7 +213,7 @@ public class beneaththemanor extends JFrame
 			            break;
 		            }
 		            track[rubblespot].setIcon(rubble);
-		            nums[rubblespot]=5;
+		            nums[rubblespot]=7;
 	            }
             }
             //End of rubble spot testing
@@ -261,11 +261,14 @@ public class beneaththemanor extends JFrame
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
 	            	 	            
 	            	             }
-	            	             else 
-	            	 	            track[firespot].setIcon(fire);
+	            	             else {
+		            	 	            track[firespot].setIcon(fire);
+		            	 	           nums[firespot]=4;
+		            	             }
 	            	             
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
+	            	            	 nums[firespot]=5;
 	            	            	 Hud.UpdateStats();
 	            	             }
 	            	             
@@ -292,13 +295,22 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 25;
+            	    		health = health - 10;
             	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover--;
                 	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
+            	    	}
+            	    	else if(x==5) {
+            	    		health = health - 10;
+            	    		Hud.CheckHealth();
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    	trackmover--;
+                	    	 track[trackmover].setIcon(fire);
+                	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
@@ -337,10 +349,13 @@ public class beneaththemanor extends JFrame
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
 	            	 	            
 	            	             }
-	            	             else 
+	            	             else {
 	            	 	            track[firespot].setIcon(fire);
+	            	 	           nums[firespot]=5;
+	            	             }
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
+	            	            	 
 	            	            	 Hud.UpdateStats();
 	            	             }
 	            	             
@@ -368,13 +383,22 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 25;
+            	    		health = health - 10;
             	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover++;
                 	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
+            	    	}
+            	    	else if(x==5) {
+            	    		health = health - 10;
+            	    		Hud.CheckHealth();
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    	trackmover++;
+                	    	 track[trackmover].setIcon(fire);
+                	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
@@ -419,8 +443,10 @@ public class beneaththemanor extends JFrame
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
 	            	 	            
 	            	             }
-	            	             else 
-	            	 	            track[firespot].setIcon(fire);
+	            	             else {
+		            	 	            track[firespot].setIcon(fire);
+		            	 	           nums[firespot]=5;
+		            	             }
 	            	             
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
@@ -450,13 +476,22 @@ public class beneaththemanor extends JFrame
                 	        nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 25;
+            	    		health = health - 10;
             	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover=trackmover-10;
                 	        track[trapspot].setIcon(trap_withmc);
                 	        nums[trackmover]=4;
+            	    	}
+            	    	else if(x==5) {
+            	    		health = health - 10;
+            	    		Hud.CheckHealth();
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    	trackmover=trackmover-10;;
+                	    	 track[trackmover].setIcon(fire);
+                	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
@@ -495,8 +530,10 @@ public class beneaththemanor extends JFrame
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
 	            	 	            
 	            	             }
-	            	             else 
-	            	 	            track[firespot].setIcon(fire);
+	            	             else {
+		            	 	            track[firespot].setIcon(fire);
+		            	 	           nums[firespot]=5;
+		            	             }
 	            	             
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
@@ -527,13 +564,22 @@ public class beneaththemanor extends JFrame
                 	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==4) {
-            	    		health = health - 25;
+            	    		health = health - 10;
             	    		Hud.CheckHealth();
             	    		Hud.UpdateStats();
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover=trackmover+10;
                 	    	 track[trapspot].setIcon(trap_withmc);
                 	    	nums[trackmover]=4;
+            	    	}
+            	    	else if(x==5) {
+            	    		health = health - 10;
+            	    		Hud.CheckHealth();
+            	    		Hud.UpdateStats();
+            	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    	trackmover=trackmover+10;
+                	    	 track[trackmover].setIcon(fire);
+                	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
@@ -729,7 +775,7 @@ public class beneaththemanor extends JFrame
 			            break;
 		            }
 		            track[rubblespot].setIcon(rubble);
-		            nums[rubblespot]=5;
+		            nums[rubblespot]=7;
 		            
 	            }
             }
@@ -739,6 +785,7 @@ public class beneaththemanor extends JFrame
         
         public void newFloor(){
         	
+        	enemyFighting=false;
 			swordAcquired=false;
         	floor.Generate();
         	floor.draw();
