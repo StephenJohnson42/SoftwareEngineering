@@ -203,7 +203,7 @@ public class beneaththemanor extends JFrame
             	    	
 							if(potionCount>0)
 							{
-							health = health + 50;
+							health = health + 10;
 							Hud.CheckHealth();
 							potionCount = potionCount - 1;
 							Hud.UpdateStats();
