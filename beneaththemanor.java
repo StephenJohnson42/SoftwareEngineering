@@ -624,6 +624,7 @@ public class beneaththemanor extends JFrame
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
 			damageDisplay.setText("Damage: " + damage);
+			itemsDisplay.setText("Items: " + itemCounter);
 		}
 		public void CheckHealth() {
 			if (health<=0)
