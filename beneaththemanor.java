@@ -144,35 +144,45 @@ public class beneaththemanor extends JFrame
 		
             coinspot=0;
             rand = new Random();
-            while (nums[coinspot]==0)
+            while (nums[coinspot]==0 && coinspot!=5 && coinspot!=59 && coinspot!=50 && coinspot!=95 && coinspot!=1)
             	coinspot=rand.nextInt(99)+1;
-            
-            track[coinspot].setIcon(coins);
-            nums[coinspot]=2;
+            if(coinspot == 5 || coinspot == 59 || coinspot == 50 || coinspot == 95 || coinspot == 11 || coinspot == 1) {        
+            }
+            else {
+	            track[coinspot].setIcon(coins);
+	            nums[coinspot]=2;
+            }
             
             //Potion spot testing
             int potionchance = rand.nextInt(4);
             if(potionchance == 0) {
 	            potionspot=0;
-	            while (nums[potionspot]==0)
+	            while (nums[potionspot]==0 && potionspot!=5 && potionspot!=59 && potionspot!=50 && potionspot!=95 && potionspot!=1)
 	            	potionspot=rand.nextInt(99)+1;
-	            
-	            track[potionspot].setIcon(potion);
-	            nums[potionspot]=3;
+	            if(potionspot == 5 || potionspot == 59 || potionspot == 50 || potionspot == 95 || potionspot == 11 || potionspot == 1) {     
+	            }
+	            else {
+		            track[potionspot].setIcon(potion);
+		            nums[potionspot]=3;
+	            }
             }
             //End of potion spot testing
           //Item spot testing
             if (swordAcquired==false) {
-            int itemchance = rand.nextInt(4);
-            if(itemchance == 0) {
-	            itemspot=0;
-	            while (nums[itemspot]==0)
-	            	itemspot=rand.nextInt(99)+1;
-	            Items Item =new Items();
-	            Icon item = new ImageIcon(getClass().getResource(Item.getImage()));
-	            track[itemspot].setIcon(item);
-	            nums[itemspot]=6;
-            }
+	            int itemchance = rand.nextInt(4);
+	            if(itemchance == 0) {
+		            itemspot=0;
+		            while (nums[itemspot]==0 && itemspot!=5 && itemspot!=59 && itemspot!=50 && itemspot!=95 && itemspot!=1)
+		            	itemspot=rand.nextInt(99)+1;
+		            if(itemspot == 5 || itemspot == 59 || itemspot == 50 || itemspot == 95 || itemspot == 11 || itemspot == 1) {     
+		            }
+		            else {
+			            Items Item =new Items();
+			            Icon item = new ImageIcon(getClass().getResource(Item.getImage()));
+			            track[itemspot].setIcon(item);
+			            nums[itemspot]=6;
+		            }
+	            }
             }
             //End of Item spot testing
             
@@ -180,9 +190,12 @@ public class beneaththemanor extends JFrame
             int trapchance = rand.nextInt(1);
             if(trapchance == 0) {
 	            trapspot=0;
-	            while (nums[trapspot]==0)
+	            while (nums[trapspot]==0 && trapspot!=5 && trapspot!=59 && trapspot!=50 && trapspot!=95 && trapspot!=1)
 	            	trapspot=rand.nextInt(99)+1;
-	            nums[trapspot]=4;
+	            if(trapspot == 5 || trapspot == 59 || trapspot == 50 || trapspot == 95 || trapspot == 11 || trapspot == 1) {            
+	            }
+	            else
+	            	nums[trapspot]=4;
             }
             //End of Trap spot testing
 			
@@ -191,10 +204,10 @@ public class beneaththemanor extends JFrame
 	            int rubblechance = rand.nextInt(1);
 	            if(rubblechance == 0) {
 		            rubblespot=0;
-		            while (nums[rubblespot]==0)
+		            while (nums[rubblespot]==0 && rubblespot!=5 && rubblespot!=59 && rubblespot!=50 && rubblespot!=95 && rubblespot!=1)
 		            	rubblespot=rand.nextInt(99)+1;
 		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58
-		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95 || rubblespot == 11) {
+		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95 || rubblespot == 11 || rubblespot == 1) {
 			            break;
 		            }
 		            track[rubblespot].setIcon(rubble);
@@ -210,11 +223,8 @@ public class beneaththemanor extends JFrame
             	@Override
                 public void keyPressed(KeyEvent e)
                 {	
-            		int key = e.getKeyCode();
-            	
+            		int key = e.getKeyCode();            	
             		int x;
-            		
-					
 					if (key == KeyEvent.VK_P) {
             	    	
 							if(potionCount>0)
@@ -224,13 +234,8 @@ public class beneaththemanor extends JFrame
 							potionCount = potionCount - 1;
 							Hud.UpdateStats();
 							}
-						
-						
-						
-						
             	    	}
-            	    
-					
+				
             	    if (key == KeyEvent.VK_LEFT) {
             	    	x=nums[trackmover-1];
             	    	if ((trackmover-1)==50 && outdoor[3]==1){
@@ -554,48 +559,60 @@ public class beneaththemanor extends JFrame
             }
             
             coinspot=0;
-            
-            while (nums[coinspot]==0)
+            while (nums[coinspot]==0 && coinspot!=5 && coinspot!=59 && coinspot!=50 && coinspot!=95 && coinspot!=1)
             	coinspot=rand.nextInt(99)+1;
-            
-            track[coinspot].setIcon(coins);
-            nums[coinspot]=2;
-            
+            if(coinspot == 5 || coinspot == 59 || coinspot == 50 || coinspot == 95 || coinspot == 11 || coinspot == 1) {
+	            
+            }
+            else {
+	            track[coinspot].setIcon(coins);
+	            nums[coinspot]=2;
+            }
             
             
             //Potion spot testing
             int potionchance = rand.nextInt(4);
             if(potionchance == 0) {
 	            potionspot=0;
-	            while (nums[potionspot]==0)
+	            while (nums[potionspot]==0 && potionspot!=5 && potionspot!=59 && potionspot!=50 && potionspot!=95 && potionspot!=1)
 	            	potionspot=rand.nextInt(99)+1;
-	            
-	            track[potionspot].setIcon(potion);
-	            nums[potionspot]=3;
-	            
+	            if(potionspot == 5 || potionspot == 59 || potionspot == 50 || potionspot == 95 || potionspot == 11 || potionspot == 1) {     
+	            }
+	            else {
+		            track[potionspot].setIcon(potion);
+		            nums[potionspot]=3;
+	            }
             }
             //End of potion spot testing
           //Item spot testing
             if (swordAcquired==false) {
-            int itemchance = rand.nextInt(4);
-            if(itemchance == 0) {
-	            itemspot=0;
-	            while (nums[itemspot]==0)
-	            	itemspot=rand.nextInt(99)+1;
-	            Items Item =new Items();
-	            Icon item = new ImageIcon(getClass().getResource(Item.getImage()));
-	            track[itemspot].setIcon(item);
-	            nums[itemspot]=6;
-            }
+            	int itemchance = rand.nextInt(4);
+	            if(itemchance == 0) {
+		            itemspot=0;
+		            while (nums[itemspot]==0 && itemspot!=5 && itemspot!=59 && itemspot!=50 && itemspot!=95 && itemspot!=1)
+		            	itemspot=rand.nextInt(99)+1;
+		            if(itemspot == 5 || itemspot == 59 || itemspot == 50 || itemspot == 95 || itemspot == 11 || itemspot == 1) {     
+		            }
+		            else {
+			            Items Item =new Items();
+			            Icon item = new ImageIcon(getClass().getResource(Item.getImage()));
+			            track[itemspot].setIcon(item);
+			            nums[itemspot]=6;
+		            }
+	            }
             }
             //End of Item spot testing
           //Trap spot testing
             int trapchance = rand.nextInt(1);
             if(trapchance == 0) {
 	            trapspot=0;
-	            while (nums[trapspot]==0)
+	            while (nums[trapspot]==0 && trapspot!=5 && trapspot!=59 && trapspot!=50 && trapspot!=95 && trapspot!=1)
 	            	trapspot=rand.nextInt(99)+1;
-	            nums[trapspot]=4;
+	            if(trapspot == 5 || trapspot == 59 || trapspot == 50 || trapspot == 95 || trapspot == 11 || trapspot == 1) {
+		            
+	            }
+	            else
+	            	nums[trapspot]=4;
 	            
             }
             //End of Trap spot testing
@@ -604,10 +621,10 @@ public class beneaththemanor extends JFrame
 	            int rubblechance = rand.nextInt(1);
 	            if(rubblechance == 0) {
 		            rubblespot=0;
-		            while (nums[rubblespot]==0)
+		            while (nums[rubblespot]==0 && rubblespot!=5 && rubblespot!=59 && rubblespot!=50 && rubblespot!=95 && rubblespot!=1)
 		            	rubblespot=rand.nextInt(99)+1;
 		            if(rubblespot == 85 || rubblespot == 15 || rubblespot == 51 || rubblespot == 58
-		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95 || rubblespot == 11) {
+		            		|| rubblespot == 5 || rubblespot == 59 || rubblespot == 50 || rubblespot == 95 || rubblespot == 11 || rubblespot == 1) {
 			            break;
 		            }
 		            track[rubblespot].setIcon(rubble);
