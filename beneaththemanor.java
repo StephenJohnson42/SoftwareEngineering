@@ -256,6 +256,8 @@ public class beneaththemanor extends JFrame
 	            	        
 	            	        if (enemyFighting==true) {
 	            	        	int firespot=0;
+	            	        	
+	            	        	for (int i=0; i<level; i++) {
 	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
 	            	        		 firespot=rand.nextInt(99)+1;
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
@@ -265,7 +267,7 @@ public class beneaththemanor extends JFrame
 		            	 	            track[firespot].setIcon(fire);
 		            	 	           nums[firespot]=4;
 		            	             }
-	            	             
+	            	        	}
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
 	            	            	 nums[firespot]=5;
@@ -344,6 +346,8 @@ public class beneaththemanor extends JFrame
 	            	        
 	            	        if (enemyFighting==true) {
 	            	        	int firespot=0;
+	            	        	
+	            	        	for (int i=0; i<level; i++) {
 	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
 	            	        		 firespot=rand.nextInt(99)+1;
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
@@ -353,6 +357,8 @@ public class beneaththemanor extends JFrame
 	            	 	            track[firespot].setIcon(fire);
 	            	 	           nums[firespot]=5;
 	            	             }
+	            	        	}
+	            	            
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
 	            	            	 
@@ -437,7 +443,10 @@ public class beneaththemanor extends JFrame
 	            	        track[trackmover].setIcon(character);
 	            	        
 	            	        if (enemyFighting==true) {
+	            	        	
+	            	        	
 	            	        	int firespot=0;
+	            	        	for (int i=0; i<level; i++) {
 	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
 	            	        		 firespot=rand.nextInt(99)+1;
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
@@ -447,7 +456,7 @@ public class beneaththemanor extends JFrame
 		            	 	            track[firespot].setIcon(fire);
 		            	 	           nums[firespot]=5;
 		            	             }
-	            	             
+	            	        	}
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
 	            	            	 Hud.UpdateStats();
@@ -525,6 +534,8 @@ public class beneaththemanor extends JFrame
 	            	        
 	            	        if (enemyFighting==true) {
 	            	        	int firespot=0;
+	            	        	
+	            	        	for (int i=0; i<level; i++) {
 	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
 	            	        		 firespot=rand.nextInt(99)+1;
 	            	             if(firespot == 41 ||firespot == 5 || firespot == 59 || firespot == 50 || firespot == 95 || firespot == 11 || firespot == 1) {
@@ -534,7 +545,7 @@ public class beneaththemanor extends JFrame
 		            	 	            track[firespot].setIcon(fire);
 		            	 	           nums[firespot]=5;
 		            	             }
-	            	             
+	            	        	}
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
 	            	            	 Hud.UpdateStats();
