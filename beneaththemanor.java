@@ -14,6 +14,7 @@ public class beneaththemanor extends JFrame
 	public Icon character = new ImageIcon(getClass().getResource("character.png"));
 	public Icon startpanel = new ImageIcon(getClass().getResource("start.png"));
 	public Icon stairs = new ImageIcon(getClass().getResource("stairs.png"));
+	public Icon door = new ImageIcon(getClass().getResource("door.png"));
 	public Icon wall = new ImageIcon(getClass().getResource("wall.png"));
 	public Icon coins = new ImageIcon(getClass().getResource("coins.png"));
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
@@ -168,6 +169,7 @@ public class beneaththemanor extends JFrame
 	            nums[trapspot]=4;
             }
             //End of Trap spot testing
+			
           //rubble  spot testing
             for(int i = 0; i < 7; i++) {
 	            int rubblechance = rand.nextInt(1);
@@ -183,7 +185,7 @@ public class beneaththemanor extends JFrame
 		            nums[rubblespot]=5;
 	            }
             }
-            //End of Trap spot testing
+            //End of rubble spot testing
             
 			track[trackmover].setFocusable(true);
 			track[trackmover].setIcon(character);
@@ -386,8 +388,10 @@ public class beneaththemanor extends JFrame
             	    	}
             	    }
 					
-					
-					
+					if(gold>=1000)
+					{
+						track[1].setIcon(stairs);
+					}
                 }
 
 				@Override
@@ -484,7 +488,14 @@ public class beneaththemanor extends JFrame
             
             if (floor.check_down_stair(x, y)) {
             	nums[1]=1;
-            	track[1].setIcon(stairs);
+				if(gold<1000)
+				{
+					track[1].setIcon(door);
+				}
+				else
+				{
+					track[1].setIcon(stairs);
+				}
             }
             
             coinspot=0;
