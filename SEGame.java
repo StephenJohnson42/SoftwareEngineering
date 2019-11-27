@@ -66,7 +66,8 @@ public class SEGame {
 		Credits_button.addActionListener(new ActionListener(){  
 			public void actionPerformed(ActionEvent e){  
 				//show credits messages 
-				JOptionPane.showMessageDialog(menu_window, "Created by some guys\nSoftware engineering\nFall 2019","Credits",JOptionPane.INFORMATION_MESSAGE,window_icon);
+				JOptionPane.showMessageDialog(menu_window, "Group 4 Project\nSoftware engineering\nFall 2019","Credits",JOptionPane.INFORMATION_MESSAGE,window_icon);
+				JOptionPane.showMessageDialog(menu_window, "Brenden Gressel\nStephen Johnson\nLogan Leone\nBen West","Credits",JOptionPane.INFORMATION_MESSAGE);
 				JOptionPane.showMessageDialog(menu_window, "Graphics from: ","Credits",JOptionPane.INFORMATION_MESSAGE,window_icon);
 			}  
 		});
