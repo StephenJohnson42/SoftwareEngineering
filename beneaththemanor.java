@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import java.lang.Integer;
 import java.lang.String;
 
-//TODO make sword count go down when the level changes?
+
 
 
 
@@ -802,6 +802,7 @@ public class beneaththemanor extends JFrame
         	
         	enemyFighting=false;
 			swordAcquired=false;
+			itemCounter = 0;
         	floor.Generate();
         	floor.draw();
         	level = level+1;
@@ -885,18 +886,23 @@ public class beneaththemanor extends JFrame
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
-        goldDisplay.setForeground(Color.WHITE);
-        goldDisplay.setFont(new Font("Serif", Font.BOLD, 16));
-        add(goldDisplay);
+        
 		levelDisplay.setForeground(Color.WHITE);
         levelDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(levelDisplay);
+		
+		healthDisplay.setForeground(Color.WHITE);
+        healthDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(healthDisplay);
+		
+		goldDisplay.setForeground(Color.WHITE);
+        goldDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+        add(goldDisplay);
+		
         potionDisplay.setForeground(Color.WHITE);
         potionDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(potionDisplay);
-        healthDisplay.setForeground(Color.WHITE);
-        healthDisplay.setFont(new Font("Serif", Font.BOLD, 16));
-        add(healthDisplay);
+        
         swordDisplay.setForeground(Color.WHITE);
         swordDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(swordDisplay);
