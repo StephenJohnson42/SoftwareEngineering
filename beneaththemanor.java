@@ -55,7 +55,6 @@ public class beneaththemanor extends JFrame
     public ActionListener initialclick;
     public int gold;
 	public int level;
-    public int lives;
     public int coinspot;
     public Random rand;
 	
@@ -121,7 +120,6 @@ public class beneaththemanor extends JFrame
             swordAcquired=false;
             enemyFighting=false;
             gold=0;
-            lives=3;
             level=1;
             potionCount=0;
             x= floor.get_starting_x();
@@ -878,15 +876,25 @@ public class beneaththemanor extends JFrame
         public JLabel potionDisplay = new JLabel("Potions: " + potionCount, JLabel.CENTER);
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
         public JLabel swordDisplay = new JLabel("Swords: " + itemCounter, JLabel.CENTER);
-        
+        public JLabel blank1 = new JLabel(sword, JLabel.CENTER);
+		public JLabel blank2 = new JLabel("   ", JLabel.CENTER);
+		public JLabel blank3 = new JLabel("   ", JLabel.CENTER);
+		public JLabel blank4 = new JLabel("   ", JLabel.CENTER);
+		public JLabel blank5 = new JLabel("   ", JLabel.CENTER);
 		public GameHud(){
-		setPreferredSize(new Dimension(640, 200));
+		setPreferredSize(new Dimension(640, 100));
 		setBackground(Color.BLACK);
-		GridLayout grid=new GridLayout(1,5,0,0);
+		GridLayout grid=new GridLayout(2,5,0,0);
     	grid.setHgap(0); 
         grid.setVgap(0);
         setLayout(grid);
-        
+        add(blank1);
+		add(blank2);
+		add(blank3);
+		add(blank4);
+		add(blank5);
+		
+		
 		levelDisplay.setForeground(Color.WHITE);
         levelDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(levelDisplay);
