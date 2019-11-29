@@ -7,6 +7,10 @@ import java.util.TimerTask;
 import java.lang.Integer;
 import java.lang.String;
 
+//TODO make sword count go down when the level changes?
+
+
+
 public class beneaththemanor extends JFrame
 {
 	public Icon stones = new ImageIcon(getClass().getResource("stones.png"));
@@ -913,6 +917,7 @@ public class beneaththemanor extends JFrame
 		public void CheckHealth() {
 			if (health<=0)
 			{
+				JOptionPane.showMessageDialog(this, "You died!","Credits",JOptionPane.INFORMATION_MESSAGE);  //TODO create skull icon for message
 				System.exit(0);
 				
 			}
@@ -924,6 +929,7 @@ public class beneaththemanor extends JFrame
 		}
 		
 		public void YouWin() {
+			
 			System.exit(0);
 		}
 		

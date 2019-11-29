@@ -68,7 +68,7 @@ public class SEGame {
 				//show credits messages 
 				JOptionPane.showMessageDialog(menu_window, "Group 4 Project\nSoftware engineering\nFall 2019","Credits",JOptionPane.INFORMATION_MESSAGE,window_icon);
 				JOptionPane.showMessageDialog(menu_window, "Brenden Gressel\nStephen Johnson\nLogan Leone\nBen West","Credits",JOptionPane.INFORMATION_MESSAGE);
-				JOptionPane.showMessageDialog(menu_window, "Graphics from: ","Credits",JOptionPane.INFORMATION_MESSAGE,window_icon);
+				JOptionPane.showMessageDialog(menu_window, "All graphical tiles were created by David E. Gervais,\n and are published under the Creative Commons licence","Credits",JOptionPane.INFORMATION_MESSAGE,window_icon);
 			}  
 		});
 		//start button action listener
