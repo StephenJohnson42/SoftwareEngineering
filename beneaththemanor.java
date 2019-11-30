@@ -33,7 +33,7 @@ public class beneaththemanor extends JFrame
 	
 	
 	public Items[] charItems=new Items[5];			//Array for holding the items
-	public int itemCounter;
+	public int SwordCounter;
 	public int potionCount;							//How many items are being held
 	public int potionspot; 							//Spot for potions
 	public int trapspot;							//Spot for traps
@@ -76,7 +76,7 @@ public class beneaththemanor extends JFrame
         	//Set up Character
         	health = 100; 
         	damage = 50;
-        	itemCounter = 0;
+        	SwordCounter = 0;
         	//End of Character setup
         	GridLayout grid=new GridLayout(10,10,0,0);
         	grid.setHgap(0); 
@@ -318,8 +318,8 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
-            	    		charItems[itemCounter] = Item;			//Array for holding the items
-            	    		itemCounter++;
+            	    		charItems[SwordCounter] = Item;			//Array for holding the items
+            	    		SwordCounter++;
             	    		Hud.UpdateStats();
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
@@ -410,8 +410,8 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
-            	    		charItems[itemCounter] = Item;			//Array for holding the items
-            	    		itemCounter++;
+            	    		charItems[SwordCounter] = Item;			//Array for holding the items
+            	    		SwordCounter++;
             	    		Hud.UpdateStats();
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
@@ -506,8 +506,8 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
-            	    		charItems[itemCounter] = Item;			//Array for holding the items
-            	    		itemCounter++;
+            	    		charItems[SwordCounter] = Item;			//Array for holding the items
+            	    		SwordCounter++;
             	    		Hud.UpdateStats();
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
@@ -596,8 +596,8 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if(x==6) {
             	    		Items Item =new Items();
-            	    		charItems[itemCounter] = Item;			//Array for holding the items
-            	    		itemCounter++;
+            	    		charItems[SwordCounter] = Item;			//Array for holding the items
+            	    		SwordCounter++;
             	    		Hud.UpdateStats();
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
@@ -800,7 +800,7 @@ public class beneaththemanor extends JFrame
         	
         	enemyFighting=false;
 			swordAcquired=false;
-			itemCounter = 0;
+			SwordCounter = 0;
         	floor.Generate();
         	floor.draw();
         	level = level+1;
@@ -875,8 +875,9 @@ public class beneaththemanor extends JFrame
 		public JLabel levelDisplay = new JLabel("Floor: " + level, JLabel.CENTER);
         public JLabel potionDisplay = new JLabel("Potions: " + potionCount, JLabel.CENTER);
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
-        public JLabel swordDisplay = new JLabel("Swords: " + itemCounter, JLabel.CENTER);
-        public JLabel blank1 = new JLabel(sword, JLabel.CENTER);
+       // public JLabel swordDisplay = new JLabel("Swords: " + SwordCounter, JLabel.CENTER);
+		public JLabel swordDisplay = new JLabel(blackspace, JLabel.CENTER);
+        public JLabel blank1 = new JLabel("   ", JLabel.CENTER);
 		public JLabel blank2 = new JLabel("   ", JLabel.CENTER);
 		public JLabel blank3 = new JLabel("   ", JLabel.CENTER);
 		public JLabel blank4 = new JLabel("   ", JLabel.CENTER);
@@ -911,8 +912,8 @@ public class beneaththemanor extends JFrame
         potionDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(potionDisplay);
         
-        swordDisplay.setForeground(Color.WHITE);
-        swordDisplay.setFont(new Font("Serif", Font.BOLD, 16));
+       // swordDisplay.setForeground(Color.WHITE);
+       // swordDisplay.setFont(new Font("Serif", Font.BOLD, 16));
         add(swordDisplay);
         
         
@@ -922,8 +923,19 @@ public class beneaththemanor extends JFrame
 			goldDisplay.setText("Gold: " + gold);
 			levelDisplay.setText("Floor: " + level);
 			healthDisplay.setText("Health: " + health);
-			swordDisplay.setText("Swords: " + itemCounter);
+			//swordDisplay.setText("Swords: " + SwordCounter);
 			potionDisplay.setText("Potions: " + potionCount);
+			
+			if(SwordCounter == 1)
+			{
+				swordDisplay.setIcon(sword);
+			}
+			else
+			{
+				swordDisplay.setIcon(blackspace);
+			}
+			
+			
 		}
 		
 	
