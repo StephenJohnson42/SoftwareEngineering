@@ -278,7 +278,7 @@ public class beneaththemanor extends JFrame
 	            	        	}
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
-	            	            	 nums[firespot]=5;
+	            	            	 //nums[firespot]=5;
 	            	            	 Hud.UpdateStats("The Wizard's fire burns you!");
 	            	             }
 	            	             
@@ -369,7 +369,6 @@ public class beneaththemanor extends JFrame
 	            	            
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
-	            	            	 
 	            	            	 Hud.UpdateStats("The Wizard's fire burns you!");
 	            	             }
 	            	             
@@ -435,24 +434,23 @@ public class beneaththemanor extends JFrame
             	    			track[41].setIcon(enemy);
             	            	nums[41]=1;}
             	    	}
-            	    	else if (nums[1]==1 && (trackmover-10)==1) {
+            	    	/*else if (nums[1]==1 && (trackmover-10)==1) {
             	    		if (gold>=1000) {
             	    			gold=gold-1000;
             	    			newFloor();
             	    			Hud.UpdateStats("");
             	    		}
-            	    	}
+            	    	}*/
             	    	else if (x==1) {
             	    		if(nums[trackmover] == 4 )
             	    			track[trackmover].setIcon(trap);
             	    		else
             	    			track[trackmover].setIcon(blackspace);
-            	    		trackmover=trackmover-10;;
+            	    		trackmover=trackmover-10;
 	            	        track[trackmover].setIcon(character);
 	            	        
 	            	        if (enemyFighting==true) {
-	            	        	
-	            	        	
+	            	       
 	            	        	int firespot=0;
 	            	        	for (int i=0; i<level; i++) {
 	            	        	 while (nums[firespot]==0 && firespot!=5 && firespot!=59 && firespot!=50 && firespot!=95 && firespot!=1)
