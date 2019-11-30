@@ -956,7 +956,7 @@ public class beneaththemanor extends JFrame
 			healthDisplay.setText("Health: " + health);
 			//swordDisplay.setText("Swords: " + SwordCounter);
 			potionDisplay.setText("Potions: " + potionCount);
-			infolabel.setText(info);
+			infolabel.setText(" "+info);
 			if(SwordCounter == 1)
 			{
 				swordDisplay.setIcon(sword);
@@ -992,7 +992,9 @@ public class beneaththemanor extends JFrame
 		
 		public void Help() {
 			
-			JOptionPane.showMessageDialog(this, "Collect 1000 gold to unlock the door and exit the level.\n","Help",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Collect 1000 gold to unlock the door and exit the level."+
+			"\nIn order to defeat the wizard at the end of each level, you must first collect the sword hidden somewhere on the floor."+
+			"\nControls:\nP  - drink a potion\nH  - open the help menu\nUse the arrow keys to move up, down, left, or right","Help",JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 }
