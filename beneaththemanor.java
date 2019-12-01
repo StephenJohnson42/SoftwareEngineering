@@ -192,7 +192,7 @@ public class beneaththemanor extends JFrame
             
             //Trap  spot testing
             int trapchance = rand.nextInt(1);
-            if(trapchance == 0) {
+            if(trapchance == 0 && enemyFighting==false) {
 	            trapspot=0;
 	            while (nums[trapspot]==0 && trapspot!=5 && trapspot!=59 && trapspot!=50 && trapspot!=95 && trapspot!=1)
 	            	trapspot=rand.nextInt(99)+1;
@@ -389,7 +389,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==3) {
             	    		//health = health + 50;
 							potionCount = potionCount + 1;
-            	    		Hud.UpdateStats("You picked up a potion");
+            	    		Hud.UpdateStats("You picked up a potion!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
                 	        track[trackmover].setIcon(character);
@@ -574,7 +574,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==3) {
             	    		//health = health + 50;
 							potionCount = potionCount + 1;
-            	    		Hud.UpdateStats("You picked up a potion");
+            	    		Hud.UpdateStats("You picked up a potion!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
                 	    	track[trackmover].setIcon(character);
@@ -768,7 +768,7 @@ public class beneaththemanor extends JFrame
             //End of Item spot testing
           //Trap spot testing
             int trapchance = rand.nextInt(1);
-            if(trapchance == 0) {
+            if(trapchance == 0 && enemyFighting==false) {
 	            trapspot=0;
 	            while (nums[trapspot]==0 && trapspot!=5 && trapspot!=59 && trapspot!=50 && trapspot!=95 && trapspot!=1)
 	            	trapspot=rand.nextInt(99)+1;
