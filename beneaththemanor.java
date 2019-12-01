@@ -273,7 +273,7 @@ public class beneaththemanor extends JFrame
 	            	             }
 	            	             else {
 		            	 	            track[firespot].setIcon(fire);
-		            	 	           nums[firespot]=4;
+		            	 	           nums[firespot]=5;
 		            	             }
 	            	        	}
 	            	             if (firespot==trackmover) {
@@ -286,6 +286,7 @@ public class beneaththemanor extends JFrame
 	            	             {
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
+	            	            	 SwordCounter--;
 	            	             }
 	            	        }
             	    	}
@@ -377,6 +378,7 @@ public class beneaththemanor extends JFrame
 	            	             {
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
+	            	            	 SwordCounter--;
 	            	             }
 	            	        }
             	    	}
@@ -474,6 +476,7 @@ public class beneaththemanor extends JFrame
 	            	             {
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
+	            	            	 SwordCounter--;
 	            	             }
 	            	        }
             	    	}
@@ -564,6 +567,7 @@ public class beneaththemanor extends JFrame
 	            	             {
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
+	            	            	 SwordCounter--;
 	            	             }
 	            	        }
             	    	}
