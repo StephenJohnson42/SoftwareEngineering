@@ -282,9 +282,10 @@ public class beneaththemanor extends JFrame
 	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
-	            	             if (trackmover==51 && swordAcquired)
+	            	             if (trackmover==41 && swordAcquired)
 	            	             {
 	            	            	 enemyFighting=false;
+	            	            	 swordAcquired=false;
 	            	             }
 	            	        }
             	    	}
@@ -372,9 +373,10 @@ public class beneaththemanor extends JFrame
 	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
-	            	             if (trackmover==51 && swordAcquired)
+	            	             if (trackmover==41 && swordAcquired)
 	            	             {
 	            	            	 enemyFighting=false;
+	            	            	 swordAcquired=false;
 	            	             }
 	            	        }
             	    	}
@@ -468,9 +470,10 @@ public class beneaththemanor extends JFrame
 	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
-	            	             if (trackmover==51 && swordAcquired)
+	            	             if (trackmover==41 && swordAcquired)
 	            	             {
 	            	            	 enemyFighting=false;
+	            	            	 swordAcquired=false;
 	            	             }
 	            	        }
             	    	}
@@ -557,9 +560,10 @@ public class beneaththemanor extends JFrame
 	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
-	            	             if (trackmover==51 && swordAcquired)
+	            	             if (trackmover==41 && swordAcquired)
 	            	             {
 	            	            	 enemyFighting=false;
+	            	            	 swordAcquired=false;
 	            	             }
 	            	        }
             	    	}
