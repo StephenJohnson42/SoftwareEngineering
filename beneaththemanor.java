@@ -236,7 +236,7 @@ public class beneaththemanor extends JFrame
 							health = health + 10;
 							Hud.CheckHealth();
 							potionCount = potionCount - 1;
-							Hud.UpdateStats("you drink a potion");
+							Hud.UpdateStats("You drank a potion!");
 							}
             	    	}
 						
@@ -279,7 +279,7 @@ public class beneaththemanor extends JFrame
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
 	            	            	 //nums[firespot]=5;
-	            	            	 Hud.UpdateStats("The Wizard's fire burns you!");
+	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
 	            	             if (trackmover==51 && swordAcquired)
@@ -290,7 +290,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
-            	    		Hud.UpdateStats("You pick up 100 gold");
+            	    		Hud.UpdateStats("You picked up 100 gold pieces!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover--;
                 	        track[trackmover].setIcon(character);
@@ -298,7 +298,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if(x==3) {
 							potionCount = potionCount + 1;
-            	    		Hud.UpdateStats("You pick up a potion");
+            	    		Hud.UpdateStats("You picked up a potion!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover--;
                 	        track[trackmover].setIcon(character);
@@ -307,7 +307,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==4) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("Its a trap! you fall into a pit!");
+            	    		Hud.UpdateStats("It's a trap! You fell into a pit!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover--;
                 	        track[trapspot].setIcon(trap_withmc);
@@ -316,7 +316,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==5) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("The Wizard's fire burns you!");
+            	    		Hud.UpdateStats("The Wizard's fire burned you!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover--;
                 	    	 track[trackmover].setIcon(fire);
@@ -326,7 +326,7 @@ public class beneaththemanor extends JFrame
             	    		Items Item =new Items();
             	    		charItems[SwordCounter] = Item;			//Array for holding the items
             	    		SwordCounter++;
-            	    		Hud.UpdateStats("You pick up the sword!");
+            	    		Hud.UpdateStats("You picked up the sword!");
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover--;
@@ -369,7 +369,7 @@ public class beneaththemanor extends JFrame
 	            	            
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
-	            	            	 Hud.UpdateStats("The Wizard's fire burns you!");
+	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
 	            	             if (trackmover==51 && swordAcquired)
@@ -380,7 +380,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
-            	    		Hud.UpdateStats("You pick up 100 gold");
+            	    		Hud.UpdateStats("You picked up 100 gold pieces!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
                 	        track[trackmover].setIcon(character);
@@ -389,7 +389,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==3) {
             	    		//health = health + 50;
 							potionCount = potionCount + 1;
-            	    		Hud.UpdateStats("You pick up a potion");
+            	    		Hud.UpdateStats("You picked up a potion");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
                 	        track[trackmover].setIcon(character);
@@ -398,7 +398,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==4) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("Its a trap! you fall into a pit!");
+            	    		Hud.UpdateStats("It's a trap! You fell into a pit!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover++;
                 	        track[trapspot].setIcon(trap_withmc);
@@ -407,7 +407,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==5) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("The Wizard's fire burns you!");
+            	    		Hud.UpdateStats("The Wizard's fire burned you!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover++;
                 	    	 track[trackmover].setIcon(fire);
@@ -417,7 +417,7 @@ public class beneaththemanor extends JFrame
             	    		Items Item =new Items();
             	    		charItems[SwordCounter] = Item;			//Array for holding the items
             	    		SwordCounter++;
-            	    		Hud.UpdateStats("You pick up the sword!");
+            	    		Hud.UpdateStats("You picked up the sword!");
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover++;
@@ -465,7 +465,7 @@ public class beneaththemanor extends JFrame
 	            	        	}
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
-	            	            	 Hud.UpdateStats("The Wizard's fire burns you!");
+	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
 	            	             if (trackmover==51 && swordAcquired)
@@ -476,7 +476,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
-            	    		Hud.UpdateStats("You pick up 100 gold");
+            	    		Hud.UpdateStats("You picked up 100 gold pieces!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover=trackmover-10;
                 	        track[trackmover].setIcon(character);
@@ -484,7 +484,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if(x==3) {
 							potionCount = potionCount + 1;
-            	    		Hud.UpdateStats("You pick up a potion");
+            	    		Hud.UpdateStats("You picked up a potion!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover=trackmover-10;
                 	        track[trackmover].setIcon(character);
@@ -493,7 +493,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==4) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("Its a trap! you fall into a pit!");
+            	    		Hud.UpdateStats("It's a trap! You fell into a pit!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	        trackmover=trackmover-10;
                 	        track[trapspot].setIcon(trap_withmc);
@@ -502,7 +502,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==5) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("The Wizard's fire burns you!");
+            	    		Hud.UpdateStats("The Wizard's fire burned you!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover=trackmover-10;;
                 	    	 track[trackmover].setIcon(fire);
@@ -512,7 +512,7 @@ public class beneaththemanor extends JFrame
             	    		Items Item =new Items();
             	    		charItems[SwordCounter] = Item;			//Array for holding the items
             	    		SwordCounter++;
-            	    		Hud.UpdateStats("You pick up the sword!");
+            	    		Hud.UpdateStats("You picked up the sword!");
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	        trackmover=trackmover-10;
@@ -554,7 +554,7 @@ public class beneaththemanor extends JFrame
 	            	        	}
 	            	             if (firespot==trackmover) {
 	            	            	 health=health-10;
-	            	            	 Hud.UpdateStats("The Wizard's fire burns you!");
+	            	            	 Hud.UpdateStats("The Wizard's fire burned you!");
 	            	             }
 	            	             
 	            	             if (trackmover==51 && swordAcquired)
@@ -565,7 +565,7 @@ public class beneaththemanor extends JFrame
             	    	}
             	    	else if (x==2) {
             	    		gold=gold+100;
-            	    		Hud.UpdateStats("You pick up 100 gold");
+            	    		Hud.UpdateStats("You picked up 100 gold pieces!");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
                 	    	track[trackmover].setIcon(character);
@@ -574,7 +574,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==3) {
             	    		//health = health + 50;
 							potionCount = potionCount + 1;
-            	    		Hud.UpdateStats("You pick up a potion");
+            	    		Hud.UpdateStats("You picked up a potion");
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
                 	    	track[trackmover].setIcon(character);
@@ -583,7 +583,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==4) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("Its a trap! you fall into a pit!");
+            	    		Hud.UpdateStats("It's a trap! You fell into a pit!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover=trackmover+10;
                 	    	 track[trapspot].setIcon(trap_withmc);
@@ -592,7 +592,7 @@ public class beneaththemanor extends JFrame
             	    	else if(x==5) {
             	    		health = health - 10;
             	    		Hud.CheckHealth();
-            	    		Hud.UpdateStats("The Wizard's fire burns you!");
+            	    		Hud.UpdateStats("The Wizard's fire burned you!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover=trackmover+10;
                 	    	 track[trackmover].setIcon(fire);
@@ -602,7 +602,7 @@ public class beneaththemanor extends JFrame
             	    		Items Item =new Items();
             	    		charItems[SwordCounter] = Item;			//Array for holding the items
             	    		SwordCounter++;
-            	    		Hud.UpdateStats("You pick up the sword!");
+            	    		Hud.UpdateStats("You picked up the sword!");
             	    		swordAcquired=true;
             	    		track[trackmover].setIcon(blackspace);	//Reset the tiles
                 	    	trackmover=trackmover+10;
@@ -813,7 +813,7 @@ public class beneaththemanor extends JFrame
         	if (level==6)
         		Hud.YouWin();
         	
-			Hud.UpdateStats("You climb the stairs, entering a new floor");
+			Hud.UpdateStats("You climbed the stairs, entering a new floor");
 			
         	for (int i=0; i<100; i++) {
                 track[i].setIcon(stones);
@@ -881,11 +881,11 @@ public class beneaththemanor extends JFrame
         public JLabel healthDisplay = new JLabel("Health: " + health, JLabel.CENTER);
        // public JLabel swordDisplay = new JLabel("Swords: " + SwordCounter, JLabel.CENTER);
 		public JLabel swordDisplay = new JLabel(blackspace, JLabel.CENTER);
-        public JLabel infolabel = new JLabel(" collect 1000 gold to unlock the next floor", JLabel.LEFT);
+        public JLabel infolabel = new JLabel(" Collect 1000 gold pieces to go up a floor!", JLabel.LEFT);
 		//public JLabel blank2 = new JLabel();
 		//public JLabel blank3 = new JLabel();
 		//public JLabel blank4 = new JLabel();
-		public JLabel help = new JLabel("press H for help ", JLabel.RIGHT);
+		public JLabel help = new JLabel("Press H for help ", JLabel.RIGHT);
 		
 		
 		
@@ -987,12 +987,13 @@ public class beneaththemanor extends JFrame
 		
 		public void YouWin() {
 			
+			JOptionPane.showMessageDialog(this, "You win!","Credits",JOptionPane.INFORMATION_MESSAGE); 
 			System.exit(0);
 		}
 		
 		public void Help() {
 			
-			JOptionPane.showMessageDialog(this, "Collect 1000 gold to unlock the door and exit the level."+
+			JOptionPane.showMessageDialog(this, "Collect 1000 gold pieces to unlock the door and go up a floor."+
 			"\nIn order to defeat the wizard at the end of each level, you must first collect the sword hidden somewhere on the floor."+
 			"\nControls:\nP  - drink a potion\nH  - open the help menu\nUse the arrow keys to move up, down, left, or right","Help",JOptionPane.INFORMATION_MESSAGE);
 		}
