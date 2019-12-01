@@ -434,13 +434,13 @@ public class beneaththemanor extends JFrame
             	    			track[41].setIcon(enemy);
             	            	nums[41]=1;}
             	    	}
-            	    	/*else if (nums[1]==1 && (trackmover-10)==1) {
+            	    	else if (nums[1]==1 && (trackmover-10)==1) {
             	    		if (gold>=1000) {
             	    			gold=gold-1000;
             	    			newFloor();
             	    			Hud.UpdateStats("");
             	    		}
-            	    	}*/
+            	    	}
             	    	else if (x==1) {
             	    		if(nums[trackmover] == 4 )
             	    			track[trackmover].setIcon(trap);
