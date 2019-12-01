@@ -287,6 +287,7 @@ public class beneaththemanor extends JFrame
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
 	            	            	 SwordCounter--;
+	            	            	 Hud.UpdateStats("You killed the Wizard!");
 	            	             }
 	            	        }
             	    	}
@@ -379,6 +380,7 @@ public class beneaththemanor extends JFrame
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
 	            	            	 SwordCounter--;
+	            	            	 Hud.UpdateStats("You killed the Wizard!");
 	            	             }
 	            	        }
             	    	}
@@ -477,6 +479,7 @@ public class beneaththemanor extends JFrame
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
 	            	            	 SwordCounter--;
+	            	            	 Hud.UpdateStats("You killed the Wizard!");
 	            	             }
 	            	        }
             	    	}
@@ -568,6 +571,7 @@ public class beneaththemanor extends JFrame
 	            	            	 enemyFighting=false;
 	            	            	 swordAcquired=false;
 	            	            	 SwordCounter--;
+	            	            	 Hud.UpdateStats("You killed the Wizard!");
 	            	             }
 	            	        }
             	    	}
