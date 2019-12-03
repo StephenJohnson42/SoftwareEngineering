@@ -22,6 +22,7 @@ public class beneaththemanor extends JFrame
 	public Icon wall = new ImageIcon(getClass().getResource("wall.png"));
 	public Icon coins = new ImageIcon(getClass().getResource("coins.png"));
 	public Icon enemy = new ImageIcon(getClass().getResource("enemy.png"));
+	public Icon monster = new ImageIcon(getClass().getResource("monster.png"));
 	public Icon potion = new ImageIcon(getClass().getResource("potion.png"));
 	public Icon trap = new ImageIcon(getClass().getResource("pit_trap.png"));
 	public Icon sword = new ImageIcon(getClass().getResource("sword.png"));
@@ -29,6 +30,7 @@ public class beneaththemanor extends JFrame
 	public Icon rubble = new ImageIcon(getClass().getResource("rubble.png"));
 	public Icon fire = new ImageIcon(getClass().getResource("fire.png"));
 	public boolean swordAcquired;
+	public boolean monsterFighting;
 	public boolean enemyFighting;
 	
 	
@@ -36,6 +38,7 @@ public class beneaththemanor extends JFrame
 	public int SwordCounter;
 	public int potionCount;							//How many items are being held
 	public int potionspot; 							//Spot for potions
+	public int monsterspot;
 	public int trapspot;							//Spot for traps
 	public int rubblespot;							//Spot for rubble
 	public int itemspot;							//Spot for item
@@ -118,7 +121,8 @@ public class beneaththemanor extends JFrame
             trackmover=45;
             
             swordAcquired=false;
-            enemyFighting=false;
+			enemyFighting=false;
+			monsterFighting=false;
             gold=0;
             level=1;
             potionCount=0;
@@ -170,7 +174,24 @@ public class beneaththemanor extends JFrame
 		            nums[potionspot]=3;
 	            }
             }
-            //End of potion spot testing
+			//End of potion spot testing
+			
+			//Monster spot testing
+			int monsterchance = rand.nextInt(4);
+            if(monsterchance == 0) {
+	            monsterspot=0;
+	            while (nums[monsterspot]==0 && monsterspot!=5 && monsterspot!=59 && monsterspot!=50 && monsterspot!=95 && monsterspot!=1)
+					monsterspot=rand.nextInt(99)+1;
+
+	            if(monsterspot == 5 || monsterspot == 59 || monsterspot == 50 || monsterspot == 95 || monsterspot == 11 || monsterspot == 1) {     
+	            }
+	            else {
+		            track[monsterspot].setIcon(monster);
+		            nums[monsterspot]=8;
+	            }
+            }
+			//End monster spot testing
+
           //Item spot testing
             if (swordAcquired==false) {
 	            int itemchance = rand.nextInt(4);
@@ -192,7 +213,7 @@ public class beneaththemanor extends JFrame
             
             //Trap  spot testing
             int trapchance = rand.nextInt(1);
-            if(trapchance == 0 && enemyFighting==false) {
+            if(trapchance == 0 && enemyFighting==false && monsterFighting==false) {
 	            trapspot=0;
 	            while (nums[trapspot]==0 && trapspot!=5 && trapspot!=59 && trapspot!=50 && trapspot!=95 && trapspot!=1)
 	            	trapspot=rand.nextInt(99)+1;
@@ -322,7 +343,7 @@ public class beneaththemanor extends JFrame
             	    		Hud.UpdateStats("The Wizard's fire burned you!");
             	    		track[trackmover].setIcon(blackspace);	//Don't Reset Tile
                 	    	trackmover--;
-                	    	 track[trackmover].setIcon(fire);
+                	    	track[trackmover].setIcon(fire);
                 	    	nums[trackmover]=1;
             	    	}
             	    	else if(x==6) {
@@ -335,7 +356,27 @@ public class beneaththemanor extends JFrame
                 	        trackmover--;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
-            	    	}
+						}
+						else if(x==8) {
+							if(swordAcquired){
+								gold=gold+100;
+								Hud.UpdateStats("You killed the monster!");
+								track[trackmover].setIcon(blackspace);	//Reset the tiles
+								trackmover--;
+								track[trackmover].setIcon(character);
+								nums[trackmover]=1;
+							}else{
+								health = health - 15;
+								Hud.CheckHealth();
+								Hud.UpdateStats("You got hit by the monster!");
+								track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    		trackmover=trackmover--;
+                	    	 	track[trackmover].setIcon(character);
+                	    		nums[trackmover]=1;
+							}
+							
+						}
+						
             	    	
             	    }
 
@@ -429,7 +470,27 @@ public class beneaththemanor extends JFrame
                 	        trackmover++;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
-            	    	}
+						}
+						else if(x==8) {
+							if(swordAcquired){
+								gold=gold+100;
+								Hud.UpdateStats("You killed the monster!");
+								track[trackmover].setIcon(blackspace);	//Reset the tiles
+								trackmover++;
+								track[trackmover].setIcon(character);
+								nums[trackmover]=1;
+							}else{
+								health = health - 15;
+								Hud.CheckHealth();
+								Hud.UpdateStats("You got hit by the monster!");
+								track[trackmover].setIcon(blackspace);	//Don't Reset Tile
+                	    		trackmover=trackmover++;
+                	    	 	track[trackmover].setIcon(character);
+                	    		nums[trackmover]=1;
+							}
+							
+						}
+						
             	    }
 
             	    if (key == KeyEvent.VK_UP) {
@@ -527,7 +588,24 @@ public class beneaththemanor extends JFrame
                 	        trackmover=trackmover-10;
                 	        track[trackmover].setIcon(character);
                 	        nums[trackmover]=1;
-            	    	}
+						}
+						else if(x==8) {
+							if(swordAcquired){
+								gold=gold+100;
+								Hud.UpdateStats("You killed the monster!");
+								track[trackmover].setIcon(blackspace);	//Reset the tiles
+								trackmover=trackmover-10;
+								track[trackmover].setIcon(character);
+								nums[trackmover]=1;
+							}else{
+								health = health - 15;
+								Hud.CheckHealth();
+								Hud.UpdateStats("You got hit by the monster!");
+								
+							}
+							
+						}
+						
             	    	
             	    }
 
@@ -620,7 +698,25 @@ public class beneaththemanor extends JFrame
                 	    	trackmover=trackmover+10;
                 	    	track[trackmover].setIcon(character);
                 	    	nums[trackmover]=1;
-            	    	}
+						}
+						else if(x==8) {
+							if(swordAcquired){
+								gold=gold+100;
+								Hud.UpdateStats("You killed the monster!");
+								track[trackmover].setIcon(blackspace);	//Reset the tiles
+								trackmover=trackmover+10;
+								track[trackmover].setIcon(character);
+								nums[trackmover]=1;
+
+							}else if(!swordAcquired){
+								health = health - 15;
+								Hud.CheckHealth();
+								Hud.UpdateStats("You got hit by the monster!");
+								
+							}
+							
+						}
+						
             	    }
 					
 
@@ -759,7 +855,22 @@ public class beneaththemanor extends JFrame
 		            nums[potionspot]=3;
 	            }
             }
-            //End of potion spot testing
+			//End of potion spot testing
+			//Monster spot testing
+			int monsterchance = rand.nextInt(4);
+            if(monsterchance == 0) {
+	            monsterspot=0;
+	            while (nums[monsterspot]==0 && monsterspot!=5 && monsterspot!=59 && monsterspot!=50 && monsterspot!=95 && monsterspot!=1)
+					monsterspot=rand.nextInt(99)+1;
+
+	            if(monsterspot == 5 || monsterspot == 59 || monsterspot == 50 || monsterspot == 95 || monsterspot == 11 || monsterspot == 1) {     
+	            }
+	            else {
+		            track[monsterspot].setIcon(monster);
+		            nums[monsterspot]=8;
+	            }
+            }
+			//End monster spot testing
           //Item spot testing
             if (swordAcquired==false) {
             	int itemchance = rand.nextInt(4);
