@@ -1,0 +1,36 @@
+PUT THE INSTRUCTIONS BELOW INTO THE WEBSITE https://sequencediagram.org/ IF U WANT TO SEE HOW IT WORKS
+
+title Beneath The Manor Sequence Diagram
+actor User
+activate User
+User->SEGAME:Begin Game
+activate SEGAME
+SEGAME->beneaththemanor:<<create>> manor object
+activate beneaththemanor
+beneaththemanor->StartGame:<<create>>Start Game Loop
+activate StartGame
+activate GameHud
+activate FloorGen
+beneaththemanor->GameHud:<<create>>Activate Hud
+loop Game Runs until exit function satisfied
+StartGame->GameHud:<<create>>Make Floor
+StartGame->FloorGen: draw() Make New Floor
+StartGame->StartGame: newRoom() Make New Room
+StartGame->Items:getImage() Generate Item
+activate Items
+StartGame->Monsters:getMonsterNum() Generate Monsters
+activate Monsters
+StartGame->GameHud:* UpdateStats() 
+StartGame->GameHud: checkHealth()
+GameHud<--StartGame:* Update() UpdateFloor
+StartGame<--Items:Return image string
+StartGame<--Monsters:Return image string
+end
+deactivate Items
+deactivate Monsters
+deactivate FloorGen
+GameHud<->StartGame:[floor == 6]YouWin() OR checkHealth() [health == 0]
+deactivate GameHud
+deactivate SEGAME
+deactivate beneaththemanor
+deactivate StartGame
