@@ -16,7 +16,7 @@ public class beneaththemanor extends JFrame
 	public Icon stones = new ImageIcon(getClass().getResource("stones.png"));
 	public Icon blackspace = new ImageIcon(getClass().getResource("black.png"));
 	public Icon character = new ImageIcon(getClass().getResource("character.png"));
-	public Icon startpanel = new ImageIcon(getClass().getResource("start.png"));
+	//public Icon startpanel = new ImageIcon(getClass().getResource("start.png"));
 	public Icon stairs = new ImageIcon(getClass().getResource("stairs.png"));
 	public Icon door = new ImageIcon(getClass().getResource("door.png"));
 	public Icon wall = new ImageIcon(getClass().getResource("wall.png"));
